@@ -1,0 +1,236 @@
+================================================================================
+Q2: FashionMNIST on GPU - SAVE BEST MODELS ONLY
+Running on: cuda
+GPU: NVIDIA A30
+================================================================================
+
+Loading FashionMNIST...
+Train: 42000, Val: 6000, Test: 10000
+
+🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢
+STARTING GPU EXPERIMENTS
+🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢
+
+Training resnet18 | Batch=16 | Opt=SGD | LR=0.001
+================================================================================
+💡 FLOPs: 37.22 MFLOPs
+
+Epoch 1/10
+Train Loss: 0.5329, Train Acc: 80.82%                                                 
+Val Loss: 0.3720, Val Acc: 86.27%
+
+Epoch 2/10
+Train Loss: 0.3521, Train Acc: 87.08%                                                 
+Val Loss: 0.3483, Val Acc: 86.72%
+
+Epoch 3/10
+Train Loss: 0.2999, Train Acc: 88.94%                                                 
+Val Loss: 0.3002, Val Acc: 88.90%
+
+Epoch 4/10
+Train Loss: 0.2647, Train Acc: 90.16%                                                 
+Val Loss: 0.2857, Val Acc: 89.55%
+
+Epoch 5/10
+Train Loss: 0.2414, Train Acc: 90.81%                                                 
+Val Loss: 0.2991, Val Acc: 89.72%
+
+Epoch 6/10
+Train Loss: 0.2169, Train Acc: 91.80%                                                 
+Val Loss: 0.2866, Val Acc: 89.25%
+
+Epoch 7/10
+Train Loss: 0.2007, Train Acc: 92.49%                                                 
+Val Loss: 0.2821, Val Acc: 90.02%
+
+Epoch 8/10
+Train Loss: 0.1819, Train Acc: 93.10%                                                 
+Val Loss: 0.2671, Val Acc: 90.53%
+
+Epoch 9/10
+Train Loss: 0.1695, Train Acc: 93.57%                                                 
+Val Loss: 0.2716, Val Acc: 90.57%
+
+Epoch 10/10
+Train Loss: 0.1567, Train Acc: 93.90%                                                 
+Val Loss: 0.2676, Val Acc: 90.95%
+                                                           
+✅ Test Accuracy: 90.55%
+⏱️  Training Time: 390772.46 ms (390.77 sec)
+📊 Graph saved: graphs_gpu/resnet18_bs16_SGD_lr0.001.png
+
+================================================================================
+Training resnet50 | Batch=16 | Opt=SGD | LR=0.001
+================================================================================
+💡 FLOPs: 84.34 MFLOPs
+
+Epoch 1/10
+Train Loss: 0.9059, Train Acc: 71.39%                                                 
+Val Loss: 0.5519, Val Acc: 80.55%
+
+Epoch 2/10
+Train Loss: 0.4925, Train Acc: 82.53%                                                 
+Val Loss: 0.3839, Val Acc: 86.10%
+
+Epoch 3/10
+Train Loss: 0.3957, Train Acc: 85.75%                                                 
+Val Loss: 0.3619, Val Acc: 86.43%
+
+Epoch 4/10
+Train Loss: 0.3562, Train Acc: 87.06%                                                 
+Val Loss: 0.3235, Val Acc: 88.10%
+
+Epoch 5/10
+Train Loss: 0.3138, Train Acc: 88.17%                                                 
+Val Loss: 0.3254, Val Acc: 88.20%
+
+Epoch 6/10
+Train Loss: 0.2974, Train Acc: 88.92%                                                 
+Val Loss: 0.3239, Val Acc: 87.95%
+
+Epoch 7/10
+Train Loss: 0.2812, Train Acc: 89.60%                                                 
+Val Loss: 0.3105, Val Acc: 88.93%
+
+Epoch 8/10
+Train Loss: 0.2557, Train Acc: 90.39%                                                 
+Val Loss: 0.3005, Val Acc: 89.38%
+
+Epoch 9/10
+Train Loss: 0.2416, Train Acc: 90.93%                                                 
+Val Loss: 0.3223, Val Acc: 87.70%
+
+Epoch 10/10
+Train Loss: 0.2251, Train Acc: 91.62%                                                 
+Val Loss: 0.3094, Val Acc: 89.27%
+                                                          
+✅ Test Accuracy: 88.43%
+⏱️  Training Time: 769998.89 ms (770.00 sec)
+📊 Graph saved: graphs_gpu/resnet50_bs16_SGD_lr0.001.png
+
+================================================================================
+Training resnet18 | Batch=16 | Opt=Adam | LR=0.001
+================================================================================
+💡 FLOPs: 37.22 MFLOPs
+
+Epoch 1/10
+Train Loss: 0.5459, Train Acc: 80.87%                                                 
+Val Loss: 0.3715, Val Acc: 86.18%
+
+Epoch 2/10
+Train Loss: 0.3751, Train Acc: 86.40%                                                 
+Val Loss: 0.3239, Val Acc: 88.18%
+
+Epoch 3/10
+Train Loss: 0.3310, Train Acc: 88.04%                                                 
+Val Loss: 0.3946, Val Acc: 85.42%
+
+Epoch 4/10
+Train Loss: 0.2942, Train Acc: 89.34%                                                 
+Val Loss: 0.3039, Val Acc: 89.20%
+
+Epoch 5/10
+Train Loss: 0.2636, Train Acc: 90.35%                                                 
+Val Loss: 0.3115, Val Acc: 88.67%
+
+Epoch 6/10
+Train Loss: 0.2370, Train Acc: 91.15%                                                 
+Val Loss: 0.2878, Val Acc: 89.70%
+
+Epoch 7/10
+Train Loss: 0.2188, Train Acc: 91.87%                                                 
+Val Loss: 0.2611, Val Acc: 89.95%
+
+Epoch 8/10
+Train Loss: 0.2001, Train Acc: 92.60%                                                 
+Val Loss: 0.2612, Val Acc: 91.05%
+
+Epoch 9/10
+Train Loss: 0.1862, Train Acc: 92.93%                                                 
+Val Loss: 0.2451, Val Acc: 91.47%
+
+Epoch 10/10
+Train Loss: 0.1664, Train Acc: 93.74%                                                 
+Val Loss: 0.3149, Val Acc: 90.05%
+                                                           
+✅ Test Accuracy: 89.57%
+⏱️  Training Time: 473635.62 ms (473.64 sec)
+📊 Graph saved: graphs_gpu/resnet18_bs16_Adam_lr0.001.png
+
+================================================================================
+Training resnet50 | Batch=16 | Opt=Adam | LR=0.001
+================================================================================
+💡 FLOPs: 84.34 MFLOPs
+
+Epoch 1/10
+Train Loss: 0.9013, Train Acc: 72.97%                                                 
+Val Loss: 3.0457, Val Acc: 64.83%
+
+Epoch 2/10
+Train Loss: 0.5590, Train Acc: 81.19%                                                 
+Val Loss: 0.4123, Val Acc: 85.25%
+
+Epoch 3/10
+Train Loss: 0.4613, Train Acc: 84.04%                                                 
+Val Loss: 0.4490, Val Acc: 83.77%
+
+Epoch 4/10
+Train Loss: 0.4249, Train Acc: 85.11%                                                 
+Val Loss: 0.3923, Val Acc: 85.37%
+
+Epoch 5/10
+Train Loss: 0.3771, Train Acc: 86.56%                                                 
+Val Loss: 0.3648, Val Acc: 86.08%
+
+Epoch 6/10
+Train Loss: 0.3267, Train Acc: 88.23%                                                 
+Val Loss: 0.3859, Val Acc: 84.88%
+
+Epoch 7/10
+Train Loss: 0.3094, Train Acc: 88.96%                                                 
+Val Loss: 0.2938, Val Acc: 89.23%
+
+Epoch 8/10
+Train Loss: 0.2815, Train Acc: 90.12%                                                 
+Val Loss: 0.2897, Val Acc: 89.77%
+
+Epoch 9/10
+Train Loss: 0.2812, Train Acc: 90.11%                                                 
+Val Loss: 0.3016, Val Acc: 89.17%
+
+Epoch 10/10
+Train Loss: 0.2469, Train Acc: 91.03%                                                 
+Val Loss: 0.3017, Val Acc: 89.07%
+                                                          
+✅ Test Accuracy: 89.21%
+⏱️  Training Time: 870750.45 ms (870.75 sec)
+📊 Graph saved: graphs_gpu/resnet50_bs16_Adam_lr0.001.png
+
+================================================================================
+SAVING BEST MODELS ONLY
+================================================================================
+
+🏆 Best RESNET18 Saved:
+   File: best_resnet18_GPU_bs16_SGD_lr0.001_acc90.55.pth
+   Accuracy: 90.55%
+   Config: Batch=16, Opt=SGD, LR=0.001
+
+🏆 Best RESNET50 Saved:
+   File: best_resnet50_GPU_bs16_Adam_lr0.001_acc89.21.pth
+   Accuracy: 89.21%
+   Config: Batch=16, Opt=Adam, LR=0.001
+
+================================================================================
+GPU RESULTS
+================================================================================
+Compute  Batch Size Optimizer  Learning Rate  ResNet-18 Acc  ResNet-18 Time  ResNet-18 FLOPs  ResNet-50 Acc  ResNet-50 Time  ResNet-50 FLOPs
+    GPU          16       SGD          0.001          90.55       390772.46            37.22          88.43       769998.89            84.34
+    GPU          16      Adam          0.001          89.57       473635.62            37.22          89.21       870750.45            84.34
+
+💾 Results: results_gpu/fashionmnist_gpu_results.csv
+💾 Graphs: graphs_gpu/
+💾 Best Models (2 only): best_gpu_models/
+
+================================================================================
+✅ GPU EXPERIMENTS COMPLETED - SAVED ONLY 2 BEST MODELS
+================================================================================

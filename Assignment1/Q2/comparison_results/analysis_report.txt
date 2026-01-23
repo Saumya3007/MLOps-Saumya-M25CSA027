@@ -1,0 +1,90 @@
+================================================================================
+DETAILED ANALYSIS REPORT
+FashionMNIST: CPU vs GPU Performance on ResNet-18 and ResNet-50
+================================================================================
+
+1. TRAINING TIME ANALYSIS
+--------------------------------------------------------------------------------
+
+ResNet-18:
+  SGD Optimizer:
+    CPU: 794531.76 ms (794.53 sec)
+    GPU: 445545.22 ms (445.55 sec)
+    Speedup: 1.78x faster on GPU
+    Time Saved: 348986.54 ms (348.99 sec)
+  Adam Optimizer:
+    CPU: 853100.81 ms (853.10 sec)
+    GPU: 322712.71 ms (322.71 sec)
+    Speedup: 2.64x faster on GPU
+    Time Saved: 530388.10 ms (530.39 sec)
+
+ResNet-50:
+  SGD Optimizer:
+    CPU: 1788512.02 ms (1788.51 sec)
+    GPU: 517361.47 ms (517.36 sec)
+    Speedup: 3.46x faster on GPU
+    Time Saved: 1271150.55 ms (1271.15 sec)
+  Adam Optimizer:
+    CPU: 2070104.16 ms (2070.10 sec)
+    GPU: 539410.30 ms (539.41 sec)
+    Speedup: 3.84x faster on GPU
+    Time Saved: 1530693.86 ms (1530.69 sec)
+
+
+2. CLASSIFICATION ACCURACY ANALYSIS
+--------------------------------------------------------------------------------
+
+ResNet-18:
+  CPU Average: 90.39% (Range: 90.25% - 90.53%)
+  GPU Average: 90.94% (Range: 90.46% - 91.42%)
+  Difference: 0.55%
+
+ResNet-50:
+  CPU Average: 89.16% (Range: 88.86% - 89.45%)
+  GPU Average: 89.16% (Range: 88.85% - 89.47%)
+  Difference: 0.00%
+
+
+3. COMPUTATIONAL COMPLEXITY (FLOPs)
+--------------------------------------------------------------------------------
+
+ResNet-18: 37.22 MFLOPs (0.037 GFLOPs)
+ResNet-50: 84.34 MFLOPs (0.084 GFLOPs)
+ResNet-50 is 2.27x more computationally expensive
+
+
+4. BEST CONFIGURATIONS
+--------------------------------------------------------------------------------
+
+CPU:
+  Best ResNet-18:
+    Optimizer: Adam, LR: 0.001
+    Accuracy: 90.53%
+    Time: 853100.81 ms
+  Best ResNet-50:
+    Optimizer: Adam, LR: 0.001
+    Accuracy: 89.45%
+    Time: 2070104.16 ms
+
+GPU:
+  Best ResNet-18:
+    Optimizer: Adam, LR: 0.001
+    Accuracy: 91.42%
+    Time: 322712.71 ms
+  Best ResNet-50:
+    Optimizer: Adam, LR: 0.001
+    Accuracy: 89.47%
+    Time: 539410.30 ms
+
+
+5. KEY INSIGHTS
+--------------------------------------------------------------------------------
+
+• GPU provides 2.1x average speedup for ResNet-18
+• GPU provides 3.7x average speedup for ResNet-50
+• Accuracy is similar between CPU and GPU (±1-2%)
+• ResNet-50 takes ~2.3x more FLOPs than ResNet-18
+• Adam optimizer generally achieves better accuracy than SGD
+• GPU training is essential for larger models and datasets
+
+================================================================================

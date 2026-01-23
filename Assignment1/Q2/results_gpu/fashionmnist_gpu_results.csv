@@ -1,0 +1,3 @@
+Compute,Batch Size,Optimizer,Learning Rate,ResNet-18 Acc,ResNet-18 Time,ResNet-18 FLOPs,ResNet-50 Acc,ResNet-50 Time,ResNet-50 FLOPs
+GPU,16,SGD,0.001,90.55,390772.46,37.22,88.43,769998.89,84.34
+GPU,16,Adam,0.001,89.57,473635.62,37.22,89.21,870750.45,84.34
