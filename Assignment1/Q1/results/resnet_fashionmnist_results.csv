@@ -1,0 +1,17 @@
+Dataset,Batch Size,Optimizer,Learning Rate,Epochs,Pin Memory,ResNet-18 Acc (%),ResNet-50 Acc (%),ResNet-18 Time (min),ResNet-50 Time (min),ResNet-18 Model,ResNet-50 Model
+FashionMNIST,16,SGD,0.001,2,True,87.42,84.43,0.74,1.48,saved_models/resnet18_FashionMNIST_bs16_SGD_lr0.001_ep2_pmTrue_acc87.42.pth,saved_models/resnet50_FashionMNIST_bs16_SGD_lr0.001_ep2_pmTrue_acc84.43.pth
+FashionMNIST,16,SGD,0.0001,2,True,86.72,80.0,0.74,1.5,saved_models/resnet18_FashionMNIST_bs16_SGD_lr0.0001_ep2_pmTrue_acc86.72.pth,saved_models/resnet50_FashionMNIST_bs16_SGD_lr0.0001_ep2_pmTrue_acc80.00.pth
+FashionMNIST,16,Adam,0.001,2,True,87.27,80.45,0.83,1.78,saved_models/resnet18_FashionMNIST_bs16_Adam_lr0.001_ep2_pmTrue_acc87.27.pth,saved_models/resnet50_FashionMNIST_bs16_Adam_lr0.001_ep2_pmTrue_acc80.45.pth
+FashionMNIST,16,Adam,0.0001,2,True,87.17,82.95,0.89,1.75,saved_models/resnet18_FashionMNIST_bs16_Adam_lr0.0001_ep2_pmTrue_acc87.17.pth,saved_models/resnet50_FashionMNIST_bs16_Adam_lr0.0001_ep2_pmTrue_acc82.95.pth
+FashionMNIST,32,SGD,0.001,2,True,86.61,82.62,0.47,0.79,saved_models/resnet18_FashionMNIST_bs32_SGD_lr0.001_ep2_pmTrue_acc86.61.pth,saved_models/resnet50_FashionMNIST_bs32_SGD_lr0.001_ep2_pmTrue_acc82.62.pth
+FashionMNIST,32,SGD,0.0001,2,True,85.62,78.5,0.48,0.8,saved_models/resnet18_FashionMNIST_bs32_SGD_lr0.0001_ep2_pmTrue_acc85.62.pth,saved_models/resnet50_FashionMNIST_bs32_SGD_lr0.0001_ep2_pmTrue_acc78.50.pth
+FashionMNIST,32,Adam,0.001,2,True,82.58,83.57,0.54,0.91,saved_models/resnet18_FashionMNIST_bs32_Adam_lr0.001_ep2_pmTrue_acc82.58.pth,saved_models/resnet50_FashionMNIST_bs32_Adam_lr0.001_ep2_pmTrue_acc83.57.pth
+FashionMNIST,32,Adam,0.0001,2,True,87.45,82.6,0.53,0.91,saved_models/resnet18_FashionMNIST_bs32_Adam_lr0.0001_ep2_pmTrue_acc87.45.pth,saved_models/resnet50_FashionMNIST_bs32_Adam_lr0.0001_ep2_pmTrue_acc82.60.pth
+FashionMNIST,16,SGD,0.001,3,True,88.41,86.02,1.11,2.27,saved_models/resnet18_FashionMNIST_bs16_SGD_lr0.001_ep3_pmTrue_acc88.41.pth,saved_models/resnet50_FashionMNIST_bs16_SGD_lr0.001_ep3_pmTrue_acc86.02.pth
+FashionMNIST,16,SGD,0.0001,3,True,87.04,80.71,1.09,2.27,saved_models/resnet18_FashionMNIST_bs16_SGD_lr0.0001_ep3_pmTrue_acc87.04.pth,saved_models/resnet50_FashionMNIST_bs16_SGD_lr0.0001_ep3_pmTrue_acc80.71.pth
+FashionMNIST,16,Adam,0.001,3,True,88.13,80.65,1.25,2.82,saved_models/resnet18_FashionMNIST_bs16_Adam_lr0.001_ep3_pmTrue_acc88.13.pth,saved_models/resnet50_FashionMNIST_bs16_Adam_lr0.001_ep3_pmTrue_acc80.65.pth
+FashionMNIST,16,Adam,0.0001,3,True,88.55,84.67,2.18,4.26,saved_models/resnet18_FashionMNIST_bs16_Adam_lr0.0001_ep3_pmTrue_acc88.55.pth,saved_models/resnet50_FashionMNIST_bs16_Adam_lr0.0001_ep3_pmTrue_acc84.67.pth
+FashionMNIST,32,SGD,0.001,3,True,88.65,85.66,1.18,1.9,saved_models/resnet18_FashionMNIST_bs32_SGD_lr0.001_ep3_pmTrue_acc88.65.pth,saved_models/resnet50_FashionMNIST_bs32_SGD_lr0.001_ep3_pmTrue_acc85.66.pth
+FashionMNIST,32,SGD,0.0001,3,True,86.19,79.93,0.99,1.86,saved_models/resnet18_FashionMNIST_bs32_SGD_lr0.0001_ep3_pmTrue_acc86.19.pth,saved_models/resnet50_FashionMNIST_bs32_SGD_lr0.0001_ep3_pmTrue_acc79.93.pth
+FashionMNIST,32,Adam,0.001,3,True,89.24,79.7,1.12,2.05,saved_models/resnet18_FashionMNIST_bs32_Adam_lr0.001_ep3_pmTrue_acc89.24.pth,saved_models/resnet50_FashionMNIST_bs32_Adam_lr0.001_ep3_pmTrue_acc79.70.pth
+FashionMNIST,32,Adam,0.0001,3,True,88.75,84.86,1.09,2.04,saved_models/resnet18_FashionMNIST_bs32_Adam_lr0.0001_ep3_pmTrue_acc88.75.pth,saved_models/resnet50_FashionMNIST_bs32_Adam_lr0.0001_ep3_pmTrue_acc84.86.pth
