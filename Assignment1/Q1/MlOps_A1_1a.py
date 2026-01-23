@@ -1,7 +1,3 @@
-"""
-Q1(a): ResNet-18 and ResNet-50 on MNIST and FashionMNIST
-Complete code with model saving and loading functionality
-"""
 
 import torch
 import torch.nn as nn
@@ -16,11 +12,9 @@ import time
 from tqdm import tqdm
 import os
 
-# Create directories for saving models and results
 os.makedirs('saved_models', exist_ok=True)
 os.makedirs('results', exist_ok=True)
 
-# Check GPU availability
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"Using device: {device}")
 if torch.cuda.is_available():
@@ -34,7 +28,6 @@ print("="*100)
 # STEP 1: Data Preparation
 # ============================================================================
 
-# Transforms for MNIST/FashionMNIST
 transform_train = transforms.Compose([
     transforms.Resize(32),
     transforms.Grayscale(num_output_channels=3),
@@ -50,9 +43,7 @@ transform_test = transforms.Compose([
 ])
 
 def prepare_datasets(dataset_name='MNIST', train_ratio=0.7, val_ratio=0.1):
-    """
-    Load dataset and split into train/val/test
-    """
+    
     print(f"\n{'='*80}")
     print(f"Preparing {dataset_name} dataset...")
     print(f"{'='*80}")
@@ -62,7 +53,7 @@ def prepare_datasets(dataset_name='MNIST', train_ratio=0.7, val_ratio=0.1):
                                       transform=transform_train, download=True)
         test_dataset_orig = datasets.MNIST(root='./data', train=False, 
                                            transform=transform_test, download=True)
-    else:  # FashionMNIST
+    else:  
         full_dataset = datasets.FashionMNIST(root='./data', train=True, 
                                              transform=transform_train, download=True)
         test_dataset_orig = datasets.FashionMNIST(root='./data', train=False, 
@@ -88,7 +79,7 @@ def prepare_datasets(dataset_name='MNIST', train_ratio=0.7, val_ratio=0.1):
     
     return train_dataset, val_dataset, test_dataset
 
-# Prepare both datasets
+
 print("\n" + "🔵"*40)
 print("LOADING DATASETS")
 print("🔵"*40)
@@ -119,9 +110,7 @@ def create_resnet_model(model_type='resnet18', num_classes=10):
 # ============================================================================
 
 def train_one_epoch(model, train_loader, criterion, optimizer, scaler, device, use_amp=True):
-    """
-    Train for one epoch
-    """
+    
     model.train()
     running_loss = 0.0
     correct = 0
@@ -155,9 +144,7 @@ def train_one_epoch(model, train_loader, criterion, optimizer, scaler, device, u
     return train_loss, train_acc
 
 def validate(model, val_loader, criterion, device):
-    """
-    Validate the model
-    """
+    
     model.eval()
     running_loss = 0.0
     correct = 0
@@ -185,9 +172,7 @@ def validate(model, val_loader, criterion, device):
     return val_loss, val_acc
 
 def test(model, test_loader, device):
-    """
-    Test the model
-    """
+    
     model.eval()
     correct = 0
     total = 0
@@ -212,9 +197,7 @@ def test(model, test_loader, device):
 
 def save_model(model, model_type, dataset_name, batch_size, optimizer_name, 
                learning_rate, epochs, pin_memory, test_acc):
-    """
-    Save trained model with detailed naming
-    """
+    
     filename = f"{model_type}_{dataset_name}_bs{batch_size}_{optimizer_name}_lr{learning_rate}_ep{epochs}_pm{pin_memory}_acc{test_acc:.2f}.pth"
     filepath = os.path.join('saved_models', filename)
     
@@ -234,9 +217,7 @@ def save_model(model, model_type, dataset_name, batch_size, optimizer_name,
     return filepath
 
 def load_model(filepath, device):
-    """
-    Load a saved model
-    """
+   
     checkpoint = torch.load(filepath, map_location=device)
     
     model = create_resnet_model(checkpoint['model_type'], num_classes=10)
@@ -250,9 +231,7 @@ def load_model(filepath, device):
 
 def check_if_model_exists(model_type, dataset_name, batch_size, optimizer_name, 
                           learning_rate, epochs, pin_memory):
-    """
-    Check if a model with these exact parameters already exists
-    """
+   
     pattern = f"{model_type}_{dataset_name}_bs{batch_size}_{optimizer_name}_lr{learning_rate}_ep{epochs}_pm{pin_memory}"
     
     for filename in os.listdir('saved_models'):
@@ -268,10 +247,7 @@ def check_if_model_exists(model_type, dataset_name, batch_size, optimizer_name,
 def train_model(model_type, dataset_name, batch_size, optimizer_name, 
                 learning_rate, num_epochs, pin_memory, use_amp=True, 
                 force_retrain=False):
-    """
-    Complete training pipeline with model saving/loading
-    """
-    # Check if model already exists
+   
     if not force_retrain:
         existing_model = check_if_model_exists(
             model_type, dataset_name, batch_size, optimizer_name,
@@ -292,13 +268,13 @@ def train_model(model_type, dataset_name, batch_size, optimizer_name,
     print(f"Epochs: {num_epochs}, Pin Memory: {pin_memory}, AMP: {use_amp}")
     print(f"{'='*80}")
     
-    # Prepare data
+   
     if dataset_name == 'MNIST':
         train_dataset, val_dataset, test_dataset = train_mnist, val_mnist, test_mnist
     else:
         train_dataset, val_dataset, test_dataset = train_fashion, val_fashion, test_fashion
     
-    # Create data loaders
+    
     train_loader = DataLoader(train_dataset, batch_size=batch_size, 
                              shuffle=True, pin_memory=pin_memory, num_workers=2)
     val_loader = DataLoader(val_dataset, batch_size=batch_size, 
@@ -306,13 +282,12 @@ def train_model(model_type, dataset_name, batch_size, optimizer_name,
     test_loader = DataLoader(test_dataset, batch_size=batch_size, 
                             shuffle=False, pin_memory=pin_memory, num_workers=2)
     
-    # Create model
+   
     model = create_resnet_model(model_type, num_classes=10).to(device)
     
-    # Loss function
+    
     criterion = nn.CrossEntropyLoss()
     
-    # Optimizer
     if optimizer_name == 'SGD':
         optimizer = optim.SGD(model.parameters(), lr=learning_rate, momentum=0.9)
     else:  # Adam
@@ -321,7 +296,7 @@ def train_model(model_type, dataset_name, batch_size, optimizer_name,
     # Gradient scaler for AMP
     scaler = GradScaler(enabled=use_amp)
     
-    # Training loop
+    
     best_val_acc = 0.0
     start_time = time.time()
     
@@ -351,12 +326,12 @@ def train_model(model_type, dataset_name, batch_size, optimizer_name,
     print(f"Training Time: {training_time/60:.2f} minutes")
     print(f"{'='*80}")
     
-    # Save the model
+    
     model_path = save_model(model, model_type, dataset_name, batch_size, 
                            optimizer_name, learning_rate, num_epochs, 
                            pin_memory, test_acc)
     
-    # Clear GPU cache
+    
     del model
     torch.cuda.empty_cache()
     
@@ -366,14 +341,14 @@ def train_model(model_type, dataset_name, batch_size, optimizer_name,
 # STEP 6: Define Experiment Configurations
 # ============================================================================
 
-# Hyperparameter grid
+
 batch_sizes = [16, 32]
 optimizers = ['SGD', 'Adam']
 learning_rates = [0.001, 0.0001]
-pin_memory_options = [True]  # Using True for better performance
-epochs_options = [2, 3]  # Two different epoch settings
+pin_memory_options = [True]  
+epochs_options = [2, 3]  
 
-# Dataset names
+
 datasets = ['MNIST', 'FashionMNIST']
 
 print(f"\n{'='*80}")
@@ -393,10 +368,9 @@ print(f"{'='*80}")
 # STEP 7: Run All Experiments
 # ============================================================================
 
-# Storage for results
+
 all_results = []
 
-# Run experiments
 print("\n" + "🚀"*40)
 print("STARTING ALL RESNET EXPERIMENTS")
 print("🚀"*40)
@@ -433,7 +407,7 @@ for dataset in datasets:
                             force_retrain=False
                         )
                         
-                        # Store results
+                       
                         all_results.append({
                             'Dataset': dataset,
                             'Batch Size': batch_size,
@@ -457,15 +431,14 @@ print("✅"*40)
 # STEP 8: Save and Display Results
 # ============================================================================
 
-# Create DataFrame
 df_results = pd.DataFrame(all_results)
 
-# Save complete results
+
 complete_csv = 'results/resnet_complete_results.csv'
 df_results.to_csv(complete_csv, index=False)
 print(f"\n💾 Complete results saved to: {complete_csv}")
 
-# Save separate files for each dataset
+
 for dataset in datasets:
     df_dataset = df_results[df_results['Dataset'] == dataset]
     dataset_csv = f'results/resnet_{dataset.lower()}_results.csv'
