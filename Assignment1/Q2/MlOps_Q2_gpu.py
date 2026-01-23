@@ -1,6 +1,3 @@
-"""
-Q2: FashionMNIST GPU - Save ONLY Best 2 Models (1 per ResNet)
-"""
 
 import torch
 import torch.nn as nn
@@ -26,7 +23,7 @@ if not torch.cuda.is_available():
 
 device = torch.device('cuda')
 print(f"{'='*80}")
-print(f"Q2: FashionMNIST on GPU - SAVE BEST MODELS ONLY")
+print(f"Q2: FashionMNIST on GPU ")
 print(f"Running on: {device}")
 print(f"GPU: {torch.cuda.get_device_name(0)}")
 print(f"{'='*80}")
@@ -305,10 +302,9 @@ for model_type in ['resnet18', 'resnet50']:
     
     filepath = os.path.join('best_gpu_models', filename)
     
-    # Recreate model to save
+    
     model = create_model(model_type).to(device)
-    # We need to get the state dict from history, so let's save the result dict instead
-    # For now, save config and metrics only (model was deleted for memory)
+    
     torch.save({
         'test_accuracy': best['accuracy'],
         'config': config,
@@ -348,5 +344,5 @@ print(f"💾 Graphs: graphs_gpu/")
 print(f"💾 Best Models (2 only): best_gpu_models/")
 
 print(f"\n{'='*80}")
-print("✅ GPU EXPERIMENTS COMPLETED - SAVED ONLY 2 BEST MODELS")
+print("✅ GPU EXPERIMENTS COMPLETED ")
 print(f"{'='*80}")

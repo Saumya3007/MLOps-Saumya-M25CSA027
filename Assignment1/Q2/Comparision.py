@@ -1,7 +1,4 @@
-"""
-Compare CPU vs GPU Results for FashionMNIST
-Generates comparison charts and detailed analysis report
-"""
+
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -309,7 +306,6 @@ report.append(f"• GPU training is essential for larger models and datasets")
 
 report.append("\n" + "="*80)
 
-# Print and save report
 report_text = "\n".join(report)
 print(f"\n{report_text}")
 

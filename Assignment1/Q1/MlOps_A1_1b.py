@@ -1,7 +1,3 @@
-"""
-Q1(b): SVM Classification - Save ONLY Best 1-2 Models
-"""
-
 import numpy as np
 import pandas as pd
 import time
@@ -15,10 +11,10 @@ import joblib
 import os
 
 print("="*100)
-print("Q1(b): SVM EXPERIMENTS - SAVE BEST MODELS ONLY")
+print("Q1(b): SVM EXPERIMENTS ")
 print("="*100)
 
-# Create directory for best models only
+
 os.makedirs('best_svm_models', exist_ok=True)
 
 # ============================================================================
@@ -265,7 +261,6 @@ for dataset in ['MNIST', 'FashionMNIST']:
     best = best_models[dataset]
     config = best['config']
     
-    # Create filename
     kernel = config['kernel']
     C = config['C']
     gamma = str(config['gamma']).replace('.', '_')
@@ -278,7 +273,7 @@ for dataset in ['MNIST', 'FashionMNIST']:
     
     filepath = os.path.join('best_svm_models', filename)
     
-    # Save model + scaler together [web:30][web:31]
+ 
     save_dict = {
         'model': best['model'],
         'scaler': best['scaler'],

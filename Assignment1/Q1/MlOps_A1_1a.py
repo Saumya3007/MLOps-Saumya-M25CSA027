@@ -445,7 +445,6 @@ for dataset in datasets:
     df_dataset.to_csv(dataset_csv, index=False)
     print(f"💾 {dataset} results saved to: {dataset_csv}")
 
-# Display results for each dataset
 for dataset in datasets:
     print(f"\n{'='*100}")
     print(f"{dataset} RESULTS")
@@ -486,7 +485,7 @@ for dataset in datasets:
     print(f"   ResNet-18: {df_dataset['ResNet-18 Acc (%)'].mean():.2f}%")
     print(f"   ResNet-50: {df_dataset['ResNet-50 Acc (%)'].mean():.2f}%")
 
-# Compare datasets
+
 print(f"\n{'─'*80}")
 print(f"Cross-Dataset Comparison")
 print(f"{'─'*80}")
@@ -505,7 +504,6 @@ print(f"\n{'='*100}")
 print(f"ASSIGNMENT TABLE FORMAT")
 print(f"{'='*100}")
 
-# Create main table for assignment (using best epoch setting)
 for dataset in datasets:
     print(f"\n{dataset} - Test Classification Accuracy (%)")
     print(f"{'─'*100}")

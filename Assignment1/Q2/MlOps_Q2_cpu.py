@@ -1,6 +1,3 @@
-"""
-Q2: FashionMNIST CPU - Save ONLY Best 2 Models (1 per ResNet)
-"""
 
 import torch
 import torch.nn as nn
@@ -22,7 +19,7 @@ except:
 
 device = torch.device('cpu')
 print(f"{'='*80}")
-print(f"Q2: FashionMNIST on CPU - SAVE BEST MODELS ONLY")
+print(f"Q2: FashionMNIST on CPU ")
 print(f"Running on: {device}")
 print(f"{'='*80}")
 
@@ -291,7 +288,6 @@ for model_type in ['resnet18', 'resnet50']:
     
     filepath = os.path.join('best_cpu_models', filename)
     
-    # Save model checkpoint [web:35][web:38]
     torch.save({
         'model_state_dict': result['model'].state_dict(),
         'test_accuracy': best['accuracy'],
