@@ -1,0 +1,7 @@
+Hyperparameter,Value,ResNet-18 Avg (%),ResNet-50 Avg (%)
+Batch Size,16,85.97,80.5275
+Batch Size,32,85.99000000000001,79.29375
+Optimizer,SGD,85.72125,79.46375
+Optimizer,Adam,86.23875000000001,80.3575
+Learning Rate,0.001,86.40125,82.16625
+Learning Rate,0.0001,85.55875,77.655
