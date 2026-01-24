@@ -100,33 +100,7 @@
 </tbody>
 </table>
 
-### 📊 Training Curves
 
-<div align="center">
-
-| ResNet-18 on FashionMNIST | ResNet-50 on FashionMNIST |
-|:-------------------------:|:-------------------------:|
-| ![ResNet-18 GPU](images/resnet18_gpu_training.jpg) | ![ResNet-50 GPU](images/resnet50_gpu_training.jpg) |
-| <sub>**GPU Training:** Batch=16, Adam, LR=0.001</sub> | <sub>**GPU Training:** Batch=16, Adam, LR=0.001</sub> |
-
-| ResNet-18 CPU | ResNet-50 CPU |
-|:-------------:|:-------------:|
-| ![ResNet-18 CPU](images/resnet18_cpu_training.jpg) | ![ResNet-50 CPU](images/resnet50_cpu_training.jpg) |
-| <sub>**CPU Training:** Batch=16, Adam, LR=0.001</sub> | <sub>**CPU Training:** Batch=16, Adam, LR=0.001</sub> |
-
-</div>
-
-### 🎯 Confusion Matrices
-
-<div align="center">
-
-| ResNet-18 (89.24%) | ResNet-50 (86.02%) |
-|:------------------:|:------------------:|
-| ![CM ResNet-18](images/cm_resnet18_fashion.jpg) | ![CM ResNet-50](images/cm_resnet50_fashion.jpg) |
-
-<sub>*FashionMNIST confusion matrices showing per-class performance*</sub>
-
-</div>
 
 ---
 
@@ -175,33 +149,6 @@
 </tbody>
 </table>
 
-### 📈 Hyperparameter Analysis
-
-<div align="center">
-
-![Hyperparameter Analysis](images/hyperparameter_analysis.jpg)
-<sub><b>Figure:</b> Impact of C parameter, gamma, and polynomial degree on FashionMNIST accuracy. C=10.0 shows optimal performance.</sub>
-
-</div>
-
-### 🔄 Kernel Comparison
-
-<div align="center">
-
-![Kernel Comparison](images/kernel_comparison.jpg)
-<sub><b>Figure:</b> RBF and Polynomial kernels achieve similar accuracy (~89%) on FashionMNIST, but RBF is 9% faster (145s vs 160s).</sub>
-
-</div>
-
-### 🎯 Best SVM Confusion Matrix
-
-<div align="center">
-
-<img src="images/cm_svm_fashion.jpg" width="600"/>
-
-<sub>*SVM-RBF confusion matrix on FashionMNIST achieving 89.27% accuracy*</sub>
-
-</div>
 
 ---
 
@@ -263,24 +210,7 @@
 </tbody>
 </table>
 
-### 🎯 Accuracy Comparison
-
-<div align="center">
-
-![Accuracy Comparison](images/accuracy_comparison.jpg)
-<sub><b>Figure:</b> CPU and GPU achieve nearly identical accuracy (±0.55%), demonstrating deterministic training across hardware.</sub>
-
-</div>
-
-### 💻 Computational Complexity
-
-<div align="center">
-
-![FLOPs Comparison](images/flops_comparison.jpg)
-<sub><b>Figure:</b> ResNet-50 requires 2.27× more FLOPs than ResNet-18 (84.3M vs 37.2M), translating to proportional training time increase.</sub>
-
-</div>
-
+|
 ---
 
 ## 📊 Results Summary
