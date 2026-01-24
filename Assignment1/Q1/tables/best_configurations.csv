@@ -1,5 +1,0 @@
-Dataset,Model,Accuracy (%),Batch Size,Optimizer,Learning Rate,Epochs
-MNIST,ResNet-18,98.87,32,Adam,0.001,2
-MNIST,ResNet-50,98.06,16,SGD,0.001,2
-FashionMNIST,ResNet-18,88.01,16,SGD,0.001,2
-FashionMNIST,ResNet-50,84.24,16,SGD,0.001,2

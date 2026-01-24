@@ -1,0 +1,3 @@
+Dataset,Kernel,Configuration,Train Accuracy (%),Test Accuracy (%),Model File,Confusion Matrix
+MNIST,POLY,"POLY, C=1.0, γ=0_01, deg=3",100.0,97.39,BEST_svm_MNIST_poly_C1.0_gamma0_01_deg3_acc97.39.pkl,cm_svm_MNIST_poly_acc97.39.png
+FashionMNIST,RBF,"RBF, C=10.0, γ=scale",98.4,89.27,BEST_svm_FashionMNIST_rbf_C10.0_gammascale_acc89.27.pkl,cm_svm_FashionMNIST_rbf_acc89.27.png

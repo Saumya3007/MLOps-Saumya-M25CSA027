@@ -1,3 +1,0 @@
-Compute,Batch Size,Optimizer,Learning Rate,ResNet-18 Acc,ResNet-18 Time,ResNet-18 FLOPs,ResNet-50 Acc,ResNet-50 Time,ResNet-50 FLOPs
-CPU,16,SGD,0.001,90.5,834882.6,37.22,89.09,1994688.69,84.34
-CPU,16,Adam,0.001,90.09,1106555.34,37.22,88.91,2276443.92,84.34

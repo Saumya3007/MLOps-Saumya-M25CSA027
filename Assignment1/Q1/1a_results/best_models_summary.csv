@@ -1,0 +1,5 @@
+Dataset,Model,Batch Size,Optimizer,Learning Rate,Epochs,Pin Memory,Test Accuracy (%),Val Accuracy (%),Training Time (min),Model File,Confusion Matrix
+MNIST,RESNET18,16,SGD,0.001,2,False,99.1,98.92,0.7,BEST_resnet18_MNIST_acc99.10.pth,cm_resnet18_MNIST_acc99.10.png
+MNIST,RESNET50,16,SGD,0.001,3,False,98.33,98.28,1.86,BEST_resnet50_MNIST_acc98.33.pth,cm_resnet50_MNIST_acc98.33.png
+FashionMNIST,RESNET18,32,Adam,0.0001,3,False,89.12,89.27,0.72,BEST_resnet18_FashionMNIST_acc89.12.pth,cm_resnet18_FashionMNIST_acc89.12.png
+FashionMNIST,RESNET50,16,SGD,0.001,3,True,86.45,87.23,1.82,BEST_resnet50_FashionMNIST_acc86.45.pth,cm_resnet50_FashionMNIST_acc86.45.png
