@@ -8,7 +8,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Report](https://img.shields.io/badge/Report-PDF-orange.svg)](assignment1/report.pdf)
 
-**[📄 Full Report](https://github.com/Saumya3007/MLOps-Saumya-M25CSA027/blob/main/Assignment1/M25CSA027_Saumya_Pancholi_ass1.pdf)** | **[💾 Trained Models](https://drive.google.com/drive/folders/1-dOCRC0NZbTkfPeybTe9rsJcY7rmiUC7?usp=sharing)** 
+**[📄 Full Report](https://github.com/Saumya3007/MLOps-Saumya-M25CSA027/blob/main/Assignment1/M25CSA027_Saumya_Pancholi_ass1.pdf)** | **[💾 Trained Models](https://drive.google.com/drive/folders/1-dOCRC0NZbTkfPeybTe9rsJcY7rmiUC7?usp=sharing)** | **[💾 Github Page Link]([https://drive.google.com/drive/folders/1-dOCRC0NZbTkfPeybTe9rsJcY7rmiUC7?usp=sharing](https://saumya3007.github.io/MLOps-Saumya-M25CSA027/))** 
 
 </div>
 
