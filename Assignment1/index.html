@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1 - Image Classification</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <a href="../index.html"><i class="fas fa-home"></i> Home</a> 
+            <span>/</span> 
+            <span>Assignment 1</span>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="assignment-header">
+        <div class="container">
+            <h1>Assignment 1: Image Classification</h1>
+           
+            <a href="report.pdf" class="btn-download" download>
+                <i class="fas fa-download"></i> Download Full Report (PDF)
+            </a>
+        </div>
+    </header>
+
+    <!-- Key Learnings -->
+    <section class="learnings">
+        <div class="container">
+            <h2><i class="fas fa-lightbulb"></i> Key Learnings</h2>
+            
+            <div class="learning-box">
+                <div class="learning-icon">💡</div>
+                <p><strong>Model Complexity Trade-off:</strong> ResNet-18 consistently outperformed the deeper ResNet-50 on both MNIST (99.10% vs 98.33%) and FashionMNIST (89.12% vs 86.45%), teaching me that deeper isn't always better—especially on smaller datasets where over-parameterization leads to underfitting with limited training epochs.</p>
+            </div>
+
+            <div class="learning-box">
+                <div class="learning-icon">⚡</div>
+                <p><strong>GPU Acceleration Impact:</strong> GPU training provided 1.78-3.84× speedup over CPU with identical accuracy (±0.55%), demonstrating that hardware acceleration is essential for production deep learning workflows while maintaining model performance consistency across platforms.</p>
+            </div>
+
+            <div class="learning-box">
+                <div class="learning-icon">🎯</div>
+                <p><strong>Traditional ML Remains Relevant:</strong> SVM achieved competitive results (97.39% MNIST, 89.27% FashionMNIST) compared to ResNet, proving that classical machine learning methods still have value for baseline comparisons and interpretability, though at the cost of significantly longer training times (6-8 minutes vs 0.7 minutes).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Model Analysis -->
+    <section class="best-model">
+        <div class="container">
+            <h2><i class="fas fa-trophy"></i> Best Model Analysis</h2>
+            <div class="winner-card">
+                <div class="winner-badge">🏆 WINNER: ResNet-18</div>
+                <h3>Why ResNet-18 is the Optimal Choice</h3>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-value">99.10%</div>
+                        <div class="stat-label">MNIST Accuracy</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">89.12%</div>
+                        <div class="stat-label">FashionMNIST Accuracy</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">0.7 min</div>
+                        <div class="stat-label">Training Time</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">37.2M</div>
+                        <div class="stat-label">FLOPs</div>
+                    </div>
+                </div>
+                <div class="analysis-text">
+                    <p><strong>Analysis:</strong> ResNet-18 emerged as the clear winner by achieving the highest accuracy on both datasets while maintaining exceptional computational efficiency. With 54% fewer parameters than ResNet-50, it trained 2.65× faster and demonstrated superior generalization on limited data. The optimal configuration (Batch=16-32, SGD/Adam, LR=0.001) achieved near-perfect MNIST classification and competitive FashionMNIST results, making it ideal for real-world deployment on resource-constrained environments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiments Overview -->
+    <section class="experiments">
+        <div class="container">
+            <h2><i class="fas fa-flask"></i> Experiments Overview</h2>
+
+            <div class="experiment-card">
+                <div class="exp-header">
+                    <h3>Q1(a): ResNet Deep Learning</h3>
+                    <span class="badge badge-dl">Deep Learning</span>
+                </div>
+                <p class="exp-summary">
+                    Trained ResNet-18 and ResNet-50 on MNIST and FashionMNIST with comprehensive hyperparameter exploration (batch sizes: 16, 32; optimizers: SGD, Adam; learning rates: 0.001, 0.0001; epochs: 2, 3). ResNet-18 achieved 99.10% on MNIST and 89.12% on FashionMNIST, outperforming the deeper ResNet-50.
+                </p>
+            </div>
+
+            <div class="experiment-card">
+                <div class="exp-header">
+                    <h3>Q1(b): SVM Classification</h3>
+                    <span class="badge badge-ml">Traditional ML</span>
+                </div>
+                <p class="exp-summary">
+                    Evaluated SVM with RBF and Polynomial kernels across various C, gamma, and degree values. Best results: MNIST 97.39% (Poly, C=1.0, γ=0.01, degree=3) and FashionMNIST 89.27% (RBF, C=10.0, γ=scale). SVM achieved competitive accuracy but with significantly longer training times (6-8 minutes).
+                </p>
+            </div>
+
+            <div class="experiment-card">
+                <div class="exp-header">
+                    <h3>Q2: CPU vs GPU Performance</h3>
+                    <span class="badge badge-gpu">Hardware Analysis</span>
+                </div>
+                <p class="exp-summary">
+                    Compared training performance on FashionMNIST between CPU and GPU for both ResNet architectures. GPU provided 1.78-3.84× speedup (saving 5.8-25.5 minutes per session) with negligible accuracy difference (≤0.55%), proving essential for production deep learning workflows.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Summary -->
+    <section class="results-table">
+        <div class="container">
+            <h2><i class="fas fa-table"></i> Results Summary</h2>
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>MNIST Accuracy</th>
+                        <th>FashionMNIST Accuracy</th>
+                        <th>Training Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="winner-row">
+                        <td><strong>ResNet-18</strong></td>
+                        <td><strong>99.10%</strong></td>
+                        <td><strong>89.12%</strong></td>
+                        <td>0.7 min</td>
+                    </tr>
+                    <tr>
+                        <td>ResNet-50</td>
+                        <td>98.33%</td>
+                        <td>86.45%</td>
+                        <td>1.8 min</td>
+                    </tr>
+                    <tr>
+                        <td>SVM (Poly)</td>
+                        <td>97.39%</td>
+                        <td>88.65%</td>
+                        <td>6.4 min</td>
+                    </tr>
+                    <tr>
+                        <td>SVM (RBF)</td>
+                        <td>96.90%</td>
+                        <td>89.27%</td>
+                        <td>8.1 min</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <a href="../index.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Back to All Assignments
+            </a>
+            <p>&copy; 2026 Deep Learning Assignment 1</p>
+        </div>
+    </footer>
+</body>
+</html>
