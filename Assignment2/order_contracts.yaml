@@ -1,0 +1,105 @@
+#===============================================================================
+# DATA CONTRACT: E-commerce Flash Sale Orders
+#===============================================================================
+
+dataContractSpecification: 0.9.3
+id: urn:datacontract:ecommerce:flash-sale-orders
+version: 1.0.0
+
+#───────────────────────────────────────────────────────────────────────────
+# 1. OWNERSHIP & GOVERNANCE
+#───────────────────────────────────────────────────────────────────────────
+
+info:
+  title: "Flash Sale Order Stream"
+  description: |
+    Real-time order feed for Black Friday and promotional events.
+    Used by Marketing Dashboard to dynamically adjust ad spend based on order velocity.
+    Critical: Negative totals and unmapped status codes caused dashboard crashes last year.
+  owner: "E-commerce Data Team"
+  contact:
+    name: "Platform Data Engineer"
+    email: "data-platform@ecommerce.com"
+    slack: "#ecommerce-data"
+  classification: internal
+  tags: [orders, ecommerce, black-friday, real-time, marketing]
+
+#───────────────────────────────────────────────────────────────────────────
+# 2. SCHEMA DEFINITION (Logical Contract)
+#───────────────────────────────────────────────────────────────────────────
+
+schema:
+  type: object
+  properties:
+
+    order_total_usd:
+      type: number
+      minimum: 0
+      description: |
+        Total order value in USD. Must be non-negative.
+        Zero allowed for fully discounted promotional orders.
+      pii: false
+      # physical_mapping: o_total
+
+    status:
+      type: string
+      enum: [PAID, SHIPPED, CANCELLED]
+      description: |
+        Order fulfillment status.
+        Mapped from physical status codes:
+          2 → PAID
+          5 → SHIPPED
+          9 → CANCELLED
+        Any unmapped code will be rejected to prevent dashboard crashes.
+      pii: false
+      # physical_mapping: status_code (int: 2, 5, 9)
+
+  required:
+    - order_total_usd
+    - status
+
+#───────────────────────────────────────────────────────────────────────────
+# 3. SERVICE LEVEL AGREEMENTS (SLAs)
+#───────────────────────────────────────────────────────────────────────────
+
+sla:
+  freshness:
+    threshold: "5 seconds"
+    description: "Real-time stream for dynamic ad spend adjustment during flash sales"
+  availability:
+    percentage: "99.9%"
+    description: "Critical uptime during Black Friday and promotional events"
+  retention:
+    period: "90 days"
+    description: "Retained for quarterly marketing campaign analysis"
+
+#───────────────────────────────────────────────────────────────────────────
+# 4. DATA QUALITY RULES
+#───────────────────────────────────────────────────────────────────────────
+
+quality:
+
+  # Rule 1: Order total non-negative
+  - name: order_total_non_negative
+    type: validity
+    expression: "order_total_usd >= 0"
+    threshold: "100%"
+    enforcement: hard
+    description: "Order total must be >= 0. Negative values indicate payment processing bug."
+
+  # Rule 2: Status valid enum
+  - name: status_valid_enum
+    type: validity
+    expression: "status IN ('PAID', 'SHIPPED', 'CANCELLED')"
+    threshold: "100%"
+    enforcement: hard
+    description: "Only valid status values accepted. Prevents dashboard crashes from unmapped codes."
+
+  # Rule 3: Physical status code mapping validation
+  - name: status_code_mapped
+    type: validity
+    expression: "status_code IN (2, 5, 9)"
+    threshold: "100%"
+    enforcement: hard
+    description: "Reject any record with unmapped status_code (must be 2, 5, or 9). Hard circuit breaker."
+    # Note: This validates the physical layer before mapping to logical enum
