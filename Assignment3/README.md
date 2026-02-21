@@ -1,19 +1,17 @@
 # Assignment 3 — End-to-End HuggingFace Model Training & Docker Deployment
 
-Fine-tuning **DistilBERT** (`distilbert-base-uncased`) on the **Goodreads 8-Genre Book-Review** dataset for multi-class text classification, then containerising and publishing the full workflow.
+Fine-tuning **DistilBERT** (`distilbert-base-uncased`) on the **Goodreads 8-Genre Book-Review** dataset for multi-class text classification, containerising the workflow using Docker, and publishing artifacts to HuggingFace Hub.
 
-> **Colab notebook run date:** 2026-02-20 · Training loss achieved: **2.0820**
+> **Colab run date:** 2026-02-20 · **Final Training Loss:** 2.0820 · **GPU:** Tesla T4
 
 ---
 
 ## 🔗 Quick Links
 
-| Resource | URL |
+| Resource | Link |
 |---|---|
-| 📓 Colab Notebook | *(add your Colab share link)* |
-| 🤗 HuggingFace Model | `https://huggingface.co/YOUR_USERNAME/distilbert-goodreads-genre` |
-| 📊 WandB Project | `https://wandb.ai/YOUR_USERNAME/hf-docker-assignment` |
-| 🐙 GitHub Repo | *(add your GitHub link)* |
+| 🤗 HuggingFace Model | [Saumya3007/distilbert-goodreads-genre](https://huggingface.co/Saumya3007/distilbert-goodreads-genre) |
+| 📊 WandB Report | [pancholisaumya-iit — hf-docker-assignment](https://api.wandb.ai/links/pancholisaumya-iit/z7mxf7zr) |
 
 ---
 
@@ -21,17 +19,17 @@ Fine-tuning **DistilBERT** (`distilbert-base-uncased`) on the **Goodreads 8-Genr
 
 ```
 assignment3/
-├── Assignment3_Colab.ipynb     ← Phase 1: Run entirely in Google Colab (Tasks 1–8)
+├── Assignment3_Colab.ipynb     ← Phase 1: Run in Google Colab (Training + Upload)
 ├── src/
 │   ├── __init__.py
-│   ├── utils.py                ← Shared constants, device detection (GPU → CPU fallback)
-│   ├── data.py                 ← Dataset loading (HF Hub) + tokenisation
+│   ├── utils.py                ← Shared constants, GPU/CPU device detection
+│   ├── data.py                 ← Dataset loading from HF Hub + tokenisation
 │   ├── train.py                ← Fine-tuning with Trainer API + HF Hub upload
-│   └── eval.py                 ← Evaluation (local + HF Hub) + all visualisations
-├── Dockerfile                  ← Dev image  : training + evaluation (GPU/CPU)
-├── Dockerfile.prod             ← Prod image : evaluation only, model pulled from HF Hub
+│   └── eval.py                 ← Evaluation (local + HF Hub) + visualisations
+├── Dockerfile                  ← Dev image  : training + evaluation
+├── Dockerfile.prod             ← Prod image : evaluation only, pulls model from HF Hub
 ├── requirements.txt            ← Full training + eval dependencies
-├── requirements_prod.txt       ← Inference-only dependencies (CPU torch, no wandb)
+├── requirements_prod.txt       ← Inference-only dependencies (CPU torch)
 └── README.md
 ```
 
@@ -39,127 +37,55 @@ assignment3/
 
 ## 🐳 Docker — Build & Run
 
-### Prerequisites
-- Docker Desktop installed and running
-- Your HuggingFace **write** token → [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
-- Your WandB API key → [wandb.ai/authorize](https://wandb.ai/authorize)
+### 🔧 Development Image — Training + Evaluation
 
----
-
-### 🔧 Development Image (Training + Evaluation)
+The dev image contains the full training stack with GPU support and all dev tools.
 
 **Build:**
 ```bash
-cd assignment3
 docker build -t assignment3-dev -f Dockerfile .
-```
-
-**Verify the build:**
-```bash
-docker run --rm assignment3-dev python -c "import transformers; print('OK:', transformers.__version__)"
 ```
 
 **Run training:**
 ```bash
-docker run --rm   -e HF_TOKEN=your_hf_write_token   -e WANDB_API_KEY=your_wandb_key   -v $(pwd)/results:/app/results   assignment3-dev python -m src.train
+docker run --rm   -e HF_TOKEN=<your_hf_write_token>   -e WANDB_API_KEY=<your_wandb_key>   -v $(pwd)/results:/app/results   assignment3-dev python -m src.train
 ```
 
 **Run evaluation (after training):**
 ```bash
-docker run --rm   -e HF_TOKEN=your_hf_write_token   -e WANDB_API_KEY=your_wandb_key   -e HF_REPO=YOUR_USERNAME/distilbert-goodreads-genre   -v $(pwd)/results:/app/results   assignment3-dev python -m src.eval
+docker run --rm   -e HF_TOKEN=<your_hf_write_token>   -e WANDB_API_KEY=<your_wandb_key>   -e HF_REPO=Saumya3007/distilbert-goodreads-genre   -v $(pwd)/results:/app/results   assignment3-dev python -m src.eval
 ```
 
-**Run individual modules for testing:**
+**Interactive shell inside container:**
 ```bash
-# Test data loading only
-docker run --rm assignment3-dev python -m src.data
-
-# Interactive shell inside container
 docker run --rm -it assignment3-dev bash
 ```
 
 ---
 
-### 🚀 Production Image (Evaluation Only)
+### 🚀 Production Image — Evaluation Only
 
-The production image uses a **multi-stage build**, runs as a **non-root user**, contains **no training code**, and pulls the model **live from HuggingFace Hub** on startup.
+The production image uses a **multi-stage build**, runs as a **non-root user (`appuser`)**, contains **no training code**, uses **CPU-only PyTorch**, and pulls the model **live from HuggingFace Hub** on every container start.
 
 **Build:**
 ```bash
 docker build -t assignment3-prod -f Dockerfile.prod .
 ```
 
-**Run (evaluation auto-starts on container boot):**
+**Run (evaluation starts automatically on container boot):**
 ```bash
-docker run --rm   -e HF_TOKEN=your_hf_write_token   -e HF_REPO=YOUR_USERNAME/distilbert-goodreads-genre   -v $(pwd)/results:/home/appuser/app/results   assignment3-prod
+docker run --rm   -e HF_TOKEN=<your_hf_write_token>   -e HF_REPO=Saumya3007/distilbert-goodreads-genre   -v $(pwd)/results:/home/appuser/app/results   assignment3-prod
 ```
 
-> `WANDB_MODE` is set to `offline` in the prod image — no live WandB logging required.
+> `WANDB_MODE` is pre-set to `offline` in the prod image — no live WandB connection needed.
 
 **Override `HF_REPO` without rebuilding:**
 ```bash
-docker run --rm   -e HF_TOKEN=your_hf_write_token   -e HF_REPO=some_other_user/other-model   -v $(pwd)/results:/home/appuser/app/results   assignment3-prod
+docker run --rm   -e HF_TOKEN=<your_hf_write_token>   -e HF_REPO=some_other_user/some-other-model   -v $(pwd)/results:/home/appuser/app/results   assignment3-prod
 ```
 
 ---
 
-### Dev vs Prod Image Comparison
-
-| Feature | `Dockerfile` (Dev) | `Dockerfile.prod` (Prod) |
-|---|---|---|
-| Base image | `python:3.10` (full) | `python:3.10-slim` multi-stage |
-| Build stages | Single | 2-stage (builder + runtime) |
-| System tools | git, curl, vim, wget | None in final layer |
-| PyTorch | Full (GPU-capable) | CPU-only wheel |
-| Training deps | ✅ All (accelerate, wandb) | ❌ Excluded |
-| `train.py` included | ✅ Yes | ❌ No |
-| Non-root user | ❌ root | ✅ `appuser` (UID 1000) |
-| Health check | ❌ No | ✅ Yes |
-| Model source | `results/saved_model/` | HuggingFace Hub (runtime) |
-| WandB mode | `online` | `offline` |
-| Default CMD | `python -m src.train` | `python -m src.eval` |
-
----
-
-## 🗂️ Assignment Task Mapping
-
-| Task | Description | Where |
-|---|---|---|
-| Task 1 | Download instructor notebook | `Assignment3_Colab.ipynb` |
-| Task 2 | Create Docker dev environment | `Dockerfile` |
-| Task 3 | Convert notebook → Python modules | `src/` (data, train, eval, utils) |
-| Task 4 | Load DistilBERT from HuggingFace | STEP 6 in notebook / `src/train.py` |
-| Task 5 | Train with Trainer API + WandB | STEP 8 in notebook / `src/train.py` |
-| Task 6 | Evaluate + save metrics | STEP 9 in notebook / `src/eval.py` |
-| Task 7 | Push model to HuggingFace Hub | STEP 11 in notebook / `src/train.py` |
-| Task 8 | Re-evaluate from HF Hub | STEP 12–13 in notebook / `src/eval.py` |
-| Task 9 | Production Docker image (eval only) | `Dockerfile.prod` |
-| Task 10 | Push everything to GitHub | See GitHub section below |
-
----
-
-## 🚀 Phase-by-Phase Workflow
-
-### Phase 1 — Google Colab (Tasks 1, 3–8)
-
-1. Open `Assignment3_Colab.ipynb` in [Google Colab](https://colab.research.google.com)
-2. Set **Runtime → Change runtime type → T4 GPU**
-3. In **STEP 2 CONFIG cell**, fill in:
-   ```python
-   HF_USERNAME   = 'your_hf_username'
-   WANDB_API_KEY = 'your_wandb_api_key'
-   ```
-4. Run all 16 steps top-to-bottom
-5. Download `assignment3_results.zip` from the final cell
-
-### Phase 2 — Local Machine, Docker (Tasks 2, 9, 10)
-
-1. Edit `HF_REPO` in `src/train.py` line 15 and `src/eval.py` line 14
-2. Build and run the dev Docker image (see commands above)
-3. Build and run the prod Docker image (see commands above)
-4. Push to GitHub (see below)
-
----
 
 ## 📊 Model Details
 
@@ -168,19 +94,25 @@ docker run --rm   -e HF_TOKEN=your_hf_write_token   -e HF_REPO=some_other_user/o
 | Property | Value |
 |---|---|
 | Model | `distilbert-base-uncased` |
-| Parameters | 66M (40% fewer than BERT-base) |
-| Speed | ~60% faster than BERT |
-| GLUE performance | ~97% of BERT |
+| Total Parameters | 66,959,624 |
+| Size vs BERT | 40% fewer parameters |
+| Speed vs BERT | ~60% faster inference |
+| GLUE performance | ~97% of BERT-base |
 | Max sequence length | 256 tokens |
 | Task | 8-class text classification |
 
-DistilBERT was selected because it fits comfortably within Colab T4 GPU memory (16 GB) at batch size 16, trains significantly faster than full BERT, and still achieves strong performance on classification tasks. It is fully supported by the HuggingFace Trainer API.
+DistilBERT was chosen because it fits within Colab T4 GPU memory (16 GB) at batch size 16, trains significantly faster than full BERT, and achieves strong classification performance. It is fully supported by the HuggingFace Trainer API with `id2label` / `label2id` mapping.
 
 ### Dataset
 
-- **Name:** `adamnik/goodreads-genre-classification`
-- **Task:** 8-genre book review classification
-- **Classes:** `children`, `comics_graphic`, `fantasy_paranormal`, `history_biography`, `mystery_thriller_crime`, `poetry`, `romance`, `young_adult`
+| Property | Value |
+|---|---|
+| Name | `adamnik/goodreads-genre-classification` |
+| Task | 8-genre book review classification |
+| Train samples | 144 |
+| Validation samples | 16 |
+| Test samples | 40 |
+| Classes | `children`, `comics_graphic`, `fantasy_paranormal`, `history_biography`, `mystery_thriller_crime`, `poetry`, `romance`, `young_adult` |
 
 ### Training Configuration
 
@@ -193,128 +125,68 @@ DistilBERT was selected because it fits comfortably within Colab T4 GPU memory (
 | Weight decay | 0.01 |
 | Optimizer | AdamW |
 | Eval strategy | Every 100 steps |
+| Save strategy | Every 100 steps |
 | Best model metric | F1 (weighted) |
 | Early stopping patience | 3 |
-| FP16 | Auto (enabled on GPU) |
+| FP16 | ✅ Enabled (GPU) |
 | Seed | 42 |
 
 ---
 
-## 📈 Training Results
+## 📈 Results
 
-Training loss from the Colab run: **2.0820**
+### Training Loss Curve
 
 | Step | Training Loss | Validation Loss |
 |---|---|---|
-| Early steps | Higher | Higher |
-| Final (best checkpoint) | 2.0820 | — |
+| 100 | — | — |
+| Final | **2.0820** | 2.0826 |
 
-> Fill in final Accuracy and F1 after running evaluation.
+> Full step-by-step loss curve available on WandB → [run jtgvl5ef](https://api.wandb.ai/links/pancholisaumya-iit/z7mxf7zr)
 
 ### Evaluation Results
 
 | Metric | Local Model | HuggingFace Model | Δ |
 |---|---|---|---|
-| Accuracy | — | — | — |
-| F1 (weighted) | — | — | — |
+| **eval_loss** | 2.0826 | 2.0826 | 0.0000 |
+| **eval_accuracy** | 0.1250 | 0.1250 | 0.0000 |
+| **eval_f1 (weighted)** | 0.0284 | 0.0284 | 0.0000 |
+| eval_runtime (s) | 0.1385 | 0.5731 | — |
+| eval_samples/sec | 288.864 | 69.794 | — |
 
-*(Run `src/eval.py` or STEP 9–13 in the notebook to populate these)*
+> Identical scores between local and HuggingFace Hub model confirm successful serialisation and upload. The low accuracy (0.125) and F1 (0.028) reflect the very small dataset size (144 train samples across 8 classes ≈ 18 samples/class).
 
 ### Generated Visualisations
 
-All plots are saved to `results/` and logged to WandB automatically:
+All plots saved to `results/` and auto-logged to WandB:
 
 | File | Description |
 |---|---|
-| `results/dataset_eda.png` | Genre distribution + review length histogram |
-| `results/training_history.png` | 2×2 grid: train loss, val loss, val accuracy, val F1 |
+| `results/dataset_eda.png` | Genre distribution bar chart + review length histogram |
+| `results/training_history.png` | 2×2 grid: train loss, val loss, val accuracy, val F1 over steps |
 | `results/cm_local.png` | Confusion matrix — local model |
-| `results/cm_hf.png` | Confusion matrix — HuggingFace model |
+| `results/cm_hf.png` | Confusion matrix — HuggingFace Hub model |
 | `results/f1_local.png` | Per-class F1 bar chart — local model |
-| `results/f1_hf.png` | Per-class F1 bar chart — HuggingFace model |
+| `results/f1_hf.png` | Per-class F1 bar chart — HuggingFace Hub model |
 | `results/comparison.png` | Local vs HuggingFace metric comparison bar chart |
-
----
-
-## 🐙 GitHub (Task 10)
-
-```bash
-git init
-git add .
-git commit -m "Assignment 3: HuggingFace fine-tuning + Docker deployment"
-git remote add origin https://github.com/YOUR_USERNAME/assignment3.git
-git push -u origin main
-```
-
-Make sure to include in the repo:
-- [ ] All source files (`src/`)
-- [ ] Both Dockerfiles
-- [ ] `requirements.txt` and `requirements_prod.txt`
-- [ ] `README.md`
-- [ ] `results/` folder with evaluation JSONs and plots
-- [ ] Link to HuggingFace model in README
-
----
-
-## 📦 Dependencies
-
-### Full Training Stack (`requirements.txt`)
-```
-torch>=2.0.0
-transformers>=4.40.0
-datasets>=2.18.0
-evaluate>=0.4.0
-accelerate>=0.29.0
-huggingface_hub>=0.22.0
-wandb>=0.17.0
-scikit-learn>=1.4.0
-pandas>=2.0.0
-numpy>=1.26.0
-matplotlib>=3.8.0
-seaborn>=0.13.0
-```
-
-### Inference Only (`requirements_prod.txt`)
-```
-torch==2.2.0+cpu  (installed via --index-url in Dockerfile.prod)
-transformers>=4.40.0
-datasets>=2.18.0
-evaluate>=0.4.0
-huggingface_hub>=0.22.0
-scikit-learn>=1.4.0
-pandas>=2.0.0
-numpy>=1.26.0
-matplotlib>=3.8.0
-seaborn>=0.13.0
-```
-
----
-
-## ⚠️ Common Issues & Fixes
-
-| Error | Fix |
-|---|---|
-| `COPY __init__.py ./` not found | Remove that line — `src/__init__.py` is copied via `COPY src/ ./src/` |
-| OOM during training | Reduce `BATCH_SIZE` from 16 → 8 in STEP 2 CONFIG |
-| `evaluation_strategy` deprecated | Use `eval_strategy` (already fixed in notebook) |
-| CPU training too slow | Set `SAMPLE_SIZE = 2000` in STEP 2 CONFIG |
-| HF push fails | Ensure your token has **write** access at huggingface.co/settings/tokens |
+| `results/local_metrics.json` | Local model eval metrics (JSON) |
+| `results/hf_metrics.json` | HuggingFace model eval metrics (JSON) |
 
 ---
 
 ## 📝 Short Report
 
 ### Model Selection
-DistilBERT was chosen over full BERT for its 40% smaller parameter count and 60% faster inference, achieving 97% of BERT's GLUE performance. This made it ideal for Colab's T4 GPU within time and memory constraints.
+DistilBERT (`distilbert-base-uncased`) was selected over full BERT for its 40% smaller parameter count (66.9M vs 110M) and 60% faster inference while retaining ~97% of BERT's GLUE benchmark performance. This made it ideal for Colab's T4 GPU within time and memory constraints for a multi-class classification task.
 
 ### Training Summary
-The model was fine-tuned for 3 epochs on Goodreads 8-genre book reviews using the HuggingFace Trainer API with AdamW optimiser, early stopping (patience=3), and FP16 mixed precision on GPU. Training loss reached **2.0820**.
+The model was fine-tuned for 3 epochs on the Goodreads 8-genre book review dataset using the HuggingFace Trainer API with AdamW optimiser, early stopping (patience=3), FP16 mixed precision, and evaluation every 100 steps. The final training loss was **2.0820**. Training ran on a Tesla T4 GPU on Google Colab.
 
 ### Evaluation Comparison
-Both the local saved model and the model re-loaded from HuggingFace Hub produce identical metrics, confirming successful serialisation and upload.
+Both the locally saved model and the model reloaded from HuggingFace Hub (`Saumya3007/distilbert-goodreads-genre`) produced **identical scores** (accuracy=0.1250, F1=0.0284), confirming successful serialisation and upload. The low metrics are expected given the small dataset — only ~18 training samples per class with 8 genres is insufficient for meaningful convergence.
 
 ### Challenges
-- Managing GPU memory at batch size 16 with 256-token sequences
-- `evaluation_strategy` → `eval_strategy` deprecation fix in newer `transformers` versions
-- `COPY __init__.py ./` Docker error — resolved by removing the line (only `src/__init__.py` is needed)
-- Balancing dataset sample size for reasonable CPU fallback training time
+- Very small dataset (144 train samples / 8 classes) leading to low accuracy — real improvement would require the full dataset without `SAMPLE_SIZE` cap
+- `evaluation_strategy` → `eval_strategy` deprecation fix needed in newer `transformers` versions (applied in notebook)
+- `COPY __init__.py ./` Docker build error — resolved by removing the line (only `src/__init__.py` is needed, already included via `COPY src/ ./src/`)
+- Production Docker multi-stage build required careful separation of builder and runtime layers to keep the final image lean
