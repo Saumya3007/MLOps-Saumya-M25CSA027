@@ -1,64 +1,52 @@
-Q2
-✅ Model pushed → https://huggingface.co/Saumya3007/cifar10-resnet18
-pytorch_model.bin: 100%
- 44.8M/44.8M [00:05<00:00, 7.62MB/s]
-✅ Model loaded from HuggingFace
+Q2# CIFAR-10 Image Classification with ResNet18
 
-📊 Test Accuracy: 0.8720
-Class-wise Accuracy:
-  Class 0 (airplane    ): 0.8500
-  Class 1 (automobile  ): 0.9400
-  Class 2 (bird        ): 0.7300
-  Class 3 (cat         ): 0.7300
-  Class 4 (deer        ): 0.8800
-  Class 5 (dog         ): 0.8500
-  Class 6 (frog        ): 0.9500
-  Class 7 (horse       ): 0.9200
-  Class 8 (ship        ): 0.9100
-  Class 9 (truck       ): 0.9600
-✅ Confusion matrix logged
-✅ Bar plot logged
-✅ 20 test samples logged
+This repository contains the implementation and evaluation of a **ResNet18** model trained on the CIFAR-10 dataset. The project integrates **Hugging Face** for model hosting and **Weights & Biases (W&B)** for experiment tracking and visualization.
 
+## 📊 Performance Summary
+- **Final Test Accuracy:** 87.20%
+- **Model Architecture:** ResNet18
+- **Framework:** PyTorch
 
-Run history:
+### Class-wise Accuracy (for Exam Sheet)
+| Class ID | Class Name | Accuracy |
+| :--- | :--- | :--- |
+| 0 | Airplane | 85.00% |
+| 1 | Automobile | 94.00% |
+| 2 | Bird | 73.00% |
+| 3 | Cat | 73.00% |
+| 4 | Deer | 88.00% |
+| 5 | Dog | 85.00% |
+| 6 | Frog | 95.00% |
+| 7 | Horse | 92.00% |
+| 8 | Ship | 91.00% |
+| 9 | Truck | 96.00% |
 
-epoch	▁▁▂▃▃▃▄▅▅▅▆▇▇▇█
-train_acc	▁▄▅▅▆▇███▇█████
-train_loss	█▅▄▄▃▂▁▁▁▂▁▁▁▁▁
-val_acc	▁▃▂▅▄▆▇█▆▇▇████
-val_loss	█▅█▃▄▂▁▁▃▂▁▁▁▁▁
+---
 
-Run summary:
+## 🚀 Model & Logs
 
-acc_airplane	0.85
-acc_automobile	0.94
-acc_bird	0.73
-acc_cat	0.73
-acc_deer	0.88
-acc_dog	0.85
-acc_frog	0.95
-acc_horse	0.92
-acc_ship	0.91
-acc_truck	0.96
-+6	...
+### Hugging Face Hub
+The trained model weights are pushed to Hugging Face:
+👉 [Saumya3007/cifar10-resnet18](https://huggingface.co/Saumya3007/cifar10-resnet18)
 
-View run copper-shadow-2 at: https://wandb.ai/pancholisaumya-iit/cifar10_resnet18/runs/2e4drb62
-View project at: https://wandb.ai/pancholisaumya-iit/cifar10_resnet18
-Synced 5 W&B file(s), 3 media file(s), 26 artifact file(s) and 0 other file(s)
-Find logs at: ./wandb/run-20260221_102638-2e4drb62/logs
+### Weights & Biases (W&B)
+You can view the training curves, confusion matrix, and sample predictions here:
+- **Project Page:** [cifar10_resnet18](https://wandb.ai/pancholisaumya-iit/cifar10_resnet18)
+- **Specific Run (copper-shadow-2):** [Run Details](https://wandb.ai/pancholisaumya-iit/cifar10_resnet18/runs/2e4drb62)
 
-==================================================
-✅ FINAL TEST ACCURACY : 0.8720
-==================================================
-Class-wise Accuracy for exam sheet:
-  Class 0 (airplane    ): 0.8500
-  Class 1 (automobile  ): 0.9400
-  Class 2 (bird        ): 0.7300
-  Class 3 (cat         ): 0.7300
-  Class 4 (deer        ): 0.8800
-  Class 5 (dog         ): 0.8500
-  Class 6 (frog        ): 0.9500
-  Class 7 (horse       ): 0.9200
-  Class 8 (ship        ): 0.9100
-  Class 9 (truck       ): 0.9600
+---
+
+## 🛠️ How to Load the Model
+You can easily load the model directly from Hugging Face for inference:
+
+```python
+import torch
+from huggingface_hub import hf_hub_download
+
+# Download the model
+model_path = hf_hub_download(repo_id="Saumya3007/cifar10-resnet18", filename="pytorch_model.bin")
+
+# Load with PyTorch
+model = torch.load(model_path)
+model.eval()
+print("Model loaded successfully from HuggingFace!")
