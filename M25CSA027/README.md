@@ -31,8 +31,7 @@ The trained model weights are pushed to Hugging Face:
 
 ### Weights & Biases (W&B)
 You can view the training curves, confusion matrix, and sample predictions here:
-- **Project Page:** [cifar10_resnet18](https://wandb.ai/pancholisaumya-iit/cifar10_resnet18)
-- **Specific Run (copper-shadow-2):** [Run Details](https://wandb.ai/pancholisaumya-iit/cifar10_resnet18/runs/2e4drb62)
+- **Project Report Page:** [cifar10_resnet18](https://wandb.ai/pancholisaumya-iit/cifar10_resnet18](https://api.wandb.ai/links/pancholisaumya-iit/kexrb4wb))
 
 ---
 
