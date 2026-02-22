@@ -13,8 +13,8 @@ Fine-tuned [`distilbert-base-uncased`](https://huggingface.co/distilbert-base-un
 | Resource | URL |
 |----------|-----|
 | 🤗 HuggingFace Model | https://huggingface.co/Saumya3007/distilbert-goodreads-genre |
-| 📊 WandB Run | https://wandb.ai/pancholisaumya-iit/hf-docker-assignment/runs/2m6m9ude |
-| 📓 Colab Notebook | https://colab.research.google.com/drive/1-DhcPi4j3VBVFt9K39e895aIkXyNLJwS |
+| 📊 WandB Report | https://api.wandb.ai/links/pancholisaumya-iit/nnge4fom |
+| 📓 Colab Notebook | https://colab.research.google.com/drive/1XYUzMH7J52fsw5dhgSdw_XzOf-9cqCw5?usp=sharing |
 
 ---
 
@@ -142,49 +142,3 @@ docker run --rm \
   assignment3-prod
 ```
 
----
-
-## 🔧 Local Setup (without Docker)
-```bash
-git clone https://github.com/<your-username>/assignment3-distilbert-goodreads
-cd assignment3-distilbert-goodreads
-pip install -r requirements.txt
-
-# Train
-python -m src.train
-
-# Evaluate
-python -m src.eval
-```
-
----
-
-## 📦 requirements.txt
-```
-transformers==4.40.0
-datasets
-evaluate
-accelerate
-peft
-huggingface_hub
-wandb
-scikit-learn
-seaborn
-matplotlib
-pandas
-gdown
-torch
-requests
-```
-
----
-
-## ⚠️ Challenges
-- Streaming large `.json.gz` files without saving locally required careful use of `requests` + `gzip.open` on the raw response
-- DistilBERT's classification head is randomly initialized, causing a load warning (expected and safe to ignore)
-- WandB `logging_dir` deprecation warning — replaced with `TENSORBOARD_LOGGING_DIR`
-- `young_adult` and `fantasy_paranormal` genres are consistently harder to classify (F1 < 0.47), likely due to stylistic overlap
-
----
-
-*Model selection, training summary, evaluation comparison, and challenges described in `report.pdf`.*
