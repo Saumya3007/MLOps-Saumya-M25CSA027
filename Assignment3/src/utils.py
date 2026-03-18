@@ -1,39 +1,15 @@
-import os, json, random
-import numpy as np
-import torch
-
-GENRES = [
-    "children", "comics_graphic", "fantasy_paranormal",
-    "history_biography", "mystery_thriller_crime",
-    "poetry", "romance", "young_adult"
-]
+import os, torch
+MODEL_NAME  = "distilbert-base-uncased"
+HF_USERNAME = os.getenv("HF_USERNAME", "Saumya3007")
+HF_REPO     = f"{HF_USERNAME}/distilbert-goodreads-genre"
+GENRES = ["children","comics_graphic","fantasy_paranormal","history_biography",
+          "mystery_thriller_crime","poetry","romance","young_adult"]
 LABEL2ID = {g: i for i, g in enumerate(GENRES)}
 ID2LABEL = {i: g for i, g in enumerate(GENRES)}
 NUM_LABELS = len(GENRES)
-MODEL_CHECKPOINT = "distilbert-base-uncased"
+MAX_LENGTH = 512; BATCH_SIZE = 16 if torch.cuda.is_available() else 8
+EPOCHS = 3; LR = 5e-5; WARMUP_STEPS = 100; WEIGHT_DECAY = 0.01
+HEAD_PER_GENRE = 10000; SAMPLE_PER_GENRE = 1000; TRAIN_SPLIT = 0.8; SEED = 42
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+os.makedirs("results", exist_ok=True)
 
-def set_seed(seed=42):
-    random.seed(seed)
-    np.random.seed(seed)
-    torch.manual_seed(seed)
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed_all(seed)
-
-def get_device():
-    if torch.cuda.is_available():
-        device = torch.device("cuda")
-        print(f"[Device] Using GPU: {torch.cuda.get_device_name(0)}")
-    else:
-        device = torch.device("cpu")
-        print("[Device] GPU not available — using CPU")
-    return device
-
-def save_json(data, path):
-    os.makedirs(os.path.dirname(path) if os.path.dirname(path) else ".", exist_ok=True)
-    with open(path, "w") as f:
-        json.dump(data, f, indent=2)
-    print(f"Saved: {path}")
-
-def load_json(path):
-    with open(path) as f:
-        return json.load(f)
