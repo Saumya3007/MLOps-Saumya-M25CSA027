@@ -13,7 +13,7 @@ Fine-tuned [`distilbert-base-uncased`](https://huggingface.co/distilbert-base-un
 | Resource | URL |
 |----------|-----|
 | 🤗 HuggingFace Model | https://huggingface.co/Saumya3007/distilbert-goodreads-genre |
-| 📊 WandB Report | https://api.wandb.ai/links/pancholisaumya-iit/nnge4fom |
+| 📊 WandB  | https://api.wandb.ai/links/pancholisaumya-iit/nnge4fom |
 | 📓 Colab Notebook | https://colab.research.google.com/drive/1XYUzMH7J52fsw5dhgSdw_XzOf-9cqCw5?usp=sharing |
 
 ---
