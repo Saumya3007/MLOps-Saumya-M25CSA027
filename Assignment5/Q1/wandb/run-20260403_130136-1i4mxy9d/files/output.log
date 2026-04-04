@@ -1,0 +1,34 @@
+Train:   0%|          | 0/352 [00:00<?, ?it/s]/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/dataloader.py:561: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+Traceback (most recent call last):                      
+[baseline_no_lora] Epoch 01/10 | TR Loss 1.2658 Acc 67.76% | VA Loss 0.7340 Acc 78.46% | 150.1s
+  → New best saved: /csehome/m25csa027/MlOps/MlOps-DlOps/Assignment4/weights/baseline_no_lora_best.pt  (val=78.46%)
+[baseline_no_lora] Epoch 02/10 | TR Loss 0.7488 Acc 78.30% | VA Loss 0.6679 Acc 80.82% | 159.6s
+  → New best saved: /csehome/m25csa027/MlOps/MlOps-DlOps/Assignment4/weights/baseline_no_lora_best.pt  (val=80.82%)
+  File "/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1133, in _try_get_data
+  File "/opt/ohpc/apps/spack/opt/spack/linux-rocky8-icelake/gcc-12.3.0/python-3.11.6-5axkpu5xmffagsxye56yo4s3cqlsrs72/lib/python3.11/queue.py", line 180, in get
+    self.not_empty.wait(remaining)
+  File "/opt/ohpc/apps/spack/opt/spack/linux-rocky8-icelake/gcc-12.3.0/python-3.11.6-5axkpu5xmffagsxye56yo4s3cqlsrs72/lib/python3.11/threading.py", line 331, in wait
+    gotit = waiter.acquire(True, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/_utils/signal_handling.py", line 66, in handler
+RuntimeError: DataLoader worker (pid 730267) exited unexpectedly with exit code 1. Details are lost due to multiprocessing. Rerunning with num_workers=0 may give better error trace.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/csehome/m25csa027/MlOps/MlOps-DlOps/Assignment4/main.py", line 68, in <module>
+    history_bl, best_val_bl, _ = run_experiment(
+                                 ^^^^^^^^^^^^^^^
+  File "/csehome/m25csa027/MlOps/MlOps-DlOps/Assignment4/src/trainer.py", line 102, in run_experiment
+    tr_loss, tr_acc   = train_one_epoch(model, train_loader, criterion, optimizer, device)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/csehome/m25csa027/MlOps/MlOps-DlOps/Assignment4/src/trainer.py", line 15, in train_one_epoch
+    for imgs, labels in tqdm(loader, desc="Train", leave=False):
+  File "/csehome/m25csa027/.local/lib/python3.11/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 634, in __next__
+  File "/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1329, in _next_data
+  File "/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1285, in _get_data
+  File "/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1146, in _try_get_data
+RuntimeError: DataLoader worker (pid(s) 730265, 730266, 730267, 730268) exited unexpectedly

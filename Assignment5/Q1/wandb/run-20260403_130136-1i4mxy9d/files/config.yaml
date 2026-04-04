@@ -1,0 +1,135 @@
+_wandb:
+    value:
+        cli_version: 0.24.1
+        e:
+            exzp62xfz04tt1mns9sxxnhu7rnvmc7g:
+                codePath: Assignment4/main.py
+                codePathLocal: main.py
+                cpu_count: 32
+                cpu_count_logical: 32
+                cudaVersion: "12.2"
+                disk:
+                    /:
+                        total: "75125227520"
+                        used: "25017413632"
+                email: pancholisaumya@gmail.com
+                executable: /opt/ohpc/apps/spack/opt/spack/linux-rocky8-icelake/gcc-12.3.0/python-3.11.6-5axkpu5xmffagsxye56yo4s3cqlsrs72/bin/python3
+                git:
+                    commit: b8fff1df9164fd4f0724bbf5466b2c0e6bfa5a87
+                    remote: https://github.com/Saumya3007/MlOps-DlOps.git
+                gpu: NVIDIA A30
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Ampere
+                      cudaCores: 3584
+                      memoryTotal: "25769803776"
+                      name: NVIDIA A30
+                      uuid: GPU-b4b18135-1b8c-3a0d-92b9-5f31d2429d20
+                host: cn02
+                memory:
+                    total: "269827448832"
+                os: Linux-4.18.0-372.9.1.el8.x86_64-x86_64-with-glibc2.28
+                program: /csehome/m25csa027/MlOps/MlOps-DlOps/Assignment4/main.py
+                python: CPython 3.11.6
+                root: /csehome/m25csa027/MlOps/MlOps-DlOps/Assignment4
+                slurm:
+                    cluster_name: csedpu
+                    conf: /etc/slurm/slurm.conf
+                    cpus_on_node: "1"
+                    gpus_on_node: "1"
+                    gtids: "0"
+                    job_account: root
+                    job_cpus_per_node: "1"
+                    job_end_time: "1775328209"
+                    job_gid: "2004"
+                    job_group: mtech
+                    job_id: "31938"
+                    job_name: bash
+                    job_nodelist: cn02
+                    job_num_nodes: "1"
+                    job_partition: mtech
+                    job_qos: normal
+                    job_start_time: "1775198609"
+                    job_uid: "2432"
+                    job_user: m25csa027
+                    jobid: "31938"
+                    launch_node_ipaddr: 192.168.11.10
+                    localid: "0"
+                    nnodes: "1"
+                    nodeid: "0"
+                    nodelist: cn02
+                    nprocs: "1"
+                    ntasks: "1"
+                    prio_process: "0"
+                    procid: "0"
+                    pty_port: "33665"
+                    pty_win_col: "114"
+                    pty_win_row: "11"
+                    srun_comm_host: 192.168.11.10
+                    srun_comm_port: "42229"
+                    step_gpus: "0"
+                    step_id: "0"
+                    step_launcher_port: "42229"
+                    step_nodelist: cn02
+                    step_num_nodes: "1"
+                    step_num_tasks: "1"
+                    step_tasks_per_node: "1"
+                    stepid: "0"
+                    submit_dir: /csehome/m25csa027/MlOps/MlOps-DlOps/Assignment4
+                    submit_host: login.cse.iitj.ac.in
+                    task_pid: "729389"
+                    tasks_per_node: "1"
+                    topology_addr: cn02
+                    topology_addr_pattern: node
+                    umask: "0022"
+                startedAt: "2026-04-03T07:31:36.987385Z"
+                writerId: exzp62xfz04tt1mns9sxxnhu7rnvmc7g
+        m: []
+        python_version: 3.11.6
+        t:
+            "1":
+                - 1
+                - 11
+                - 35
+                - 41
+                - 49
+                - 63
+                - 71
+                - 98
+                - 105
+            "2":
+                - 1
+                - 11
+                - 35
+                - 41
+                - 49
+                - 63
+                - 71
+                - 98
+                - 105
+            "3":
+                - 13
+                - 16
+            "4": 3.11.6
+            "5": 0.24.1
+            "6": 5.5.0
+            "10":
+                - 20
+            "12": 0.24.1
+            "13": linux-x86_64
+alpha:
+    value: null
+dropout:
+    value: null
+epochs:
+    value: 10
+experiment:
+    value: baseline_no_lora
+lr:
+    value: 0.001
+rank:
+    value: null
+use_lora:
+    value: false
+weight_decay:
+    value: 0.0001

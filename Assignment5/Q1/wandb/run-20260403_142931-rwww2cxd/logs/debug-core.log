@@ -1,0 +1,8 @@
+{"time":"2026-04-03T14:29:32.157615979+05:30","level":"INFO","msg":"main: starting server","port-filename":"/tmp/tmp5qi7vdtm/port-730505.txt","pid":730505,"log-level":0,"disable-analytics":false,"shutdown-on-parent-exit":false,"enable-dcgm-profiling":false}
+{"time":"2026-04-03T14:29:32.158179598+05:30","level":"INFO","msg":"server: accepting connections","addr":{"Name":"/tmp/wandb-730505-730528-2693327000/socket","Net":"unix"}}
+{"time":"2026-04-03T14:29:32.158356321+05:30","level":"INFO","msg":"server: will exit if parent process dies","ppid":730505}
+{"time":"2026-04-03T14:29:32.328658801+05:30","level":"INFO","msg":"connection: ManageConnectionData: new connection created","id":"1(@)"}
+{"time":"2026-04-03T14:29:32.355111979+05:30","level":"INFO","msg":"handleInformInit: received","streamId":"rwww2cxd","id":"1(@)"}
+{"time":"2026-04-03T14:29:32.933883678+05:30","level":"INFO","msg":"handleInformInit: stream started","streamId":"rwww2cxd","id":"1(@)"}
+{"time":"2026-04-03T14:29:38.865426158+05:30","level":"INFO","msg":"connection: cancelling request","id":"1(@)","requestId":"b7dupss4w103"}
+{"time":"2026-04-03T14:33:16.79107231+05:30","level":"INFO","msg":"server: parent process exited, terminating service process"}

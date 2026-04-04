@@ -1,0 +1,11 @@
+Experiment,LoRA Layers (with/without),Rank,Alpha,Dropout,Overall Test Accuracy,Trainable Parameters used
+lora_r2_a2,with,2,2,0.1,90.12%,"75,364"
+lora_r2_a4,with,2,4,0.1,90.16%,"75,364"
+lora_r2_a8,with,2,8,0.1,90.00%,"75,364"
+lora_r4_a2,with,4,2,0.1,90.21%,"112,228"
+lora_r4_a4,with,4,4,0.1,90.41%,"112,228"
+lora_r4_a8,with,4,8,0.1,90.45%,"112,228"
+lora_r8_a2,with,8,2,0.1,90.20%,"185,956"
+lora_r8_a4,with,8,4,0.1,90.60%,"185,956"
+lora_r8_a8,with,8,8,0.1,90.37%,"185,956"
+optuna_best,with,16,16,0.0,90.69%,"333,412"

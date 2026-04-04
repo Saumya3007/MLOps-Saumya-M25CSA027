@@ -1,0 +1,113 @@
+
+============================================================
+STEP 1 — Train ResNet-18 on CIFAR-10  (target ≥ 72%)
+============================================================
+Files already downloaded and verified
+Files already downloaded and verified
+/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/csehome/m25csa027/MlOps/MlOps-DlOps/Q2/utils/trainer.py:17: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler    = GradScaler()
+/csehome/m25csa027/MlOps/MlOps-DlOps/Q2/utils/trainer.py:27: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+Epoch  10/80 | Loss 1.3440 | Train 61.89% | Test 66.25%
+Epoch  20/80 | Loss 1.1986 | Train 68.67% | Test 71.47%
+Epoch  30/80 | Loss 1.1237 | Train 72.15% | Test 78.21%
+Epoch  40/80 | Loss 1.0654 | Train 74.79% | Test 79.31%
+Epoch  50/80 | Loss 0.9892 | Train 78.14% | Test 82.56%
+Epoch  60/80 | Loss 0.9138 | Train 81.44% | Test 85.51%
+Epoch  70/80 | Loss 0.8405 | Train 84.85% | Test 87.19%
+Epoch  80/80 | Loss 0.7985 | Train 86.68% | Test 88.13%
+
+Best test accuracy: 88.29%
+
+============================================================
+STEP 2 — Adversarial Examples  eps=4.00/255  N=5000
+============================================================
+Files already downloaded and verified
+/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+
+[1/4] FGSM Scratch
+
+[2/4] FGSM ART
+
+[3/4] PGD ART
+/csehome/m25csa027/MlOps/MlOps-DlOps/Q2/detectors/train_detector.py:98: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+
+[4/4] BIM ART
+Adversarial arrays cached.
+  FGSM Scratch         69.24%
+  FGSM ART             41.96%
+  PGD ART              22.48%
+  BIM ART              22.48%
+
+[Epsilon Sweep]
+  eps=2/255  scratch=78.3%  art=55.0%
+  eps=4/255  scratch=69.2%  art=42.0%
+  eps=6/255  scratch=60.6%  art=36.9%
+  eps=8/255  scratch=53.8%  art=33.6%
+  eps=12/255  scratch=44.2%  art=30.3%
+  eps=16/255  scratch=38.3%  art=27.4%
+
+============================================================
+STEP 3 — Plots & WandB
+============================================================
+Saved /csehome/m25csa027/MlOps/MlOps-DlOps/Q2/plots/fgsm_comparison.png
+Saved /csehome/m25csa027/MlOps/MlOps-DlOps/Q2/plots/epsilon_vs_accuracy.png
+Saved /csehome/m25csa027/MlOps/MlOps-DlOps/Q2/plots/accuracy_comparison.png
+Logged 10-sample WandB tables for FGSM_Scratch, FGSM_ART, PGD, BIM.
+
+============================================================
+STEP 4 — Adversarial Detectors ResNet-34  (target ≥ 70%)
+============================================================
+
+[Detector A] PGD  —  5000 clean + 5000 adv
+  scaler    = GradScaler()
+
+[Detector PGD] ResNet-34 | Train: 8500 | Val: 1500 | Epochs: 50
+/csehome/m25csa027/MlOps/MlOps-DlOps/Q2/detectors/train_detector.py:120: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+/csehome/m25csa027/MlOps/MlOps-DlOps/Q2/detectors/train_detector.py:56: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+  ep  10/50 | tr=98.6% val=49.8% best=50.3%
+  ep  20/50 | tr=98.7% val=49.4% best=50.3%
+  ep  30/50 | tr=99.2% val=49.3% best=50.3%
+  ep  40/50 | tr=99.2% val=49.1% best=50.3%
+  ep  50/50 | tr=99.2% val=49.2% best=50.3%
+
+✓ Detector PGD (ResNet-34) — best 50.27% @ ep6 | final 50.27%
+
+[Detector B] BIM  —  5000 clean + 5000 adv
+
+[Detector BIM] ResNet-34 | Train: 8500 | Val: 1500 | Epochs: 50
+  ep  10/50 | tr=98.5% val=49.2% best=50.0%
+  ep  20/50 | tr=98.6% val=49.3% best=50.0%
+  ep  30/50 | tr=99.2% val=49.3% best=50.0%
+  ep  40/50 | tr=99.3% val=49.0% best=50.0%
+  ep  50/50 | tr=99.3% val=49.1% best=50.0%
+
+✓ Detector BIM (ResNet-34) — best 50.00% @ ep4 | final 50.00%
+Saved /csehome/m25csa027/MlOps/MlOps-DlOps/Q2/plots/detector_comparison.png
+
+============================================================
+FINAL RESULTS SUMMARY
+============================================================
+  Clean Accuracy                        88.29%  ✓ PASS
+  FGSM Scratch Accuracy                 69.24%  (drop 19.1%)
+  FGSM ART Accuracy                     41.96%  (drop 46.3%)
+  PGD ART Accuracy                      22.48%  (drop 65.8%)
+  BIM ART Accuracy                      22.48%  (drop 65.8%)
+  Detector PGD Val Acc                  50.27%  ✗ need ≥70.0%
+  Detector BIM Val Acc                  50.00%  ✗ need ≥70.0%
+Processing Files (1 / 1)      : 100%|██████████| 44.8MB / 44.8MB, 3.67MB/s  
+New Data Upload               : 100%|██████████| 44.8MB / 44.8MB, 3.67MB/s  
+  ...kpoints/best_resnet18.pth: 100%|██████████| 44.8MB / 44.8MB            
+Processing Files (1 / 1)      : 100%|██████████| 85.3MB / 85.3MB, 7.04MB/s  
+New Data Upload               : 100%|██████████| 85.3MB / 85.3MB, 7.04MB/s  
+  ...nts/best_detector_PGD.pth: 100%|██████████| 85.3MB / 85.3MB            
+Processing Files (1 / 1)      : 100%|██████████| 85.3MB / 85.3MB, 6.54MB/s  
+New Data Upload               : 100%|██████████| 85.3MB / 85.3MB, 6.54MB/s  
+  ...nts/best_detector_BIM.pth: 100%|██████████| 85.3MB / 85.3MB            
+
+Models uploaded → https://huggingface.co/Saumya3007/assignment5_q2-adversarial

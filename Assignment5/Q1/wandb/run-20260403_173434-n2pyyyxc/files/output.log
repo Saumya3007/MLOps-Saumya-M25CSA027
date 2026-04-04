@@ -1,0 +1,5 @@
+Train:  88%|████████▊ | 311/352 [03:32<00:27,  1.48it/s]
+[lora_r2_a2] Epoch 01/10 | TR Loss 0.8542 Acc 77.67% | VA Loss 0.3989 Acc 87.78% | 256.0s
+  → New best saved: /csehome/m25csa027/MlOps/MlOps-DlOps/Assignment4/weights/lora_r2_a2_best.pt  (val=87.78%)
+[lora_r2_a2] Epoch 02/10 | TR Loss 0.3733 Acc 88.30% | VA Loss 0.3540 Acc 88.88% | 249.7s
+  → New best saved: /csehome/m25csa027/MlOps/MlOps-DlOps/Assignment4/weights/lora_r2_a2_best.pt  (val=88.88%)

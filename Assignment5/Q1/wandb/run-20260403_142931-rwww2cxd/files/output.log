@@ -1,0 +1,3 @@
+Train:  24%|██▍       | 84/352 [00:39<02:07,  2.11it/s] 
+[baseline_no_lora] Epoch 01/10 | TR Loss 1.2759 Acc 67.18% | VA Loss 0.7231 Acc 78.82% | 179.5s
+  → New best saved: /csehome/m25csa027/MlOps/MlOps-DlOps/Assignment4/weights/baseline_no_lora_best.pt  (val=78.82%)

@@ -1,0 +1,94 @@
+
+============================================================
+STEP 1: Training ResNet-18 on CIFAR-10
+============================================================
+Files already downloaded and verified
+Files already downloaded and verified
+/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/csehome/m25csa027/MlOps/MlOps-DlOps/Q2/main.py:79: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model18.load_state_dict(torch.load(RESNET18_CKPT, map_location=DEVICE))
+Loaded checkpoint. Clean accuracy: 87.06%
+/csehome/m25csa027/MlOps/MlOps-DlOps/Q2/main.py:92: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model18.load_state_dict(torch.load(RESNET18_CKPT, map_location=DEVICE))
+
+============================================================
+STEP 2: Generating Adversarial Examples
+============================================================
+Files already downloaded and verified
+Using 10000 test samples for adversarial generation.
+
+[FGSM Scratch] eps=8.0/255
+  Accuracy: 50.73%
+
+[FGSM ART] eps=8.0/255
+  Accuracy: 13.66%
+
+[PGD ART] eps=8.0/255
+                                                                                                                  
+  Accuracy: 7.73%
+
+[BIM ART] eps=8.0/255
+  Accuracy: 7.73%
+
+[Epsilon Sweep]
+  eps=2/255  Scratch: 78.23%  ART: 50.80%
+  eps=4/255  Scratch: 68.98%  ART: 28.46%
+  eps=8/255  Scratch: 50.73%  ART: 13.66%
+  eps=12/255  Scratch: 37.10%  ART: 10.21%
+  eps=16/255  Scratch: 27.38%  ART: 8.71%
+
+============================================================
+STEP 3: Generating Plots
+============================================================
+Saved /csehome/m25csa027/MlOps/MlOps-DlOps/Q2/plots/fgsm_comparison.png
+Saved /csehome/m25csa027/MlOps/MlOps-DlOps/Q2/plots/epsilon_vs_accuracy.png
+Saved /csehome/m25csa027/MlOps/MlOps-DlOps/Q2/plots/accuracy_comparison.png
+Logged WandB image sample tables.
+
+============================================================
+STEP 4: Training Adversarial Detectors
+============================================================
+
+Using 10000 clean + 10000 adversarial samples.
+
+[Detector A] PGD Attack
+[detector_PGD] Epoch   5/50 | Train: 61.56% | Val: 62.62% | Best: 62.62%
+[detector_PGD] Epoch  10/50 | Train: 62.91% | Val: 59.65% | Best: 62.62%
+[detector_PGD] Epoch  15/50 | Train: 63.84% | Val: 61.12% | Best: 62.62%
+[detector_PGD] Epoch  20/50 | Train: 63.52% | Val: 61.15% | Best: 62.62%
+[detector_PGD] Epoch  25/50 | Train: 64.49% | Val: 62.00% | Best: 62.62%
+[detector_PGD] Epoch  30/50 | Train: 64.82% | Val: 62.65% | Best: 62.65%
+[detector_PGD] Epoch  35/50 | Train: 65.67% | Val: 62.23% | Best: 62.80%
+[detector_PGD] Epoch  40/50 | Train: 65.81% | Val: 62.50% | Best: 63.27%
+[detector_PGD] Epoch  45/50 | Train: 65.54% | Val: 62.50% | Best: 63.27%
+[detector_PGD] Epoch  50/50 | Train: 66.27% | Val: 62.55% | Best: 63.27%
+
+[Detector PGD] Best: 63.27% @ epoch 38 | Final: 63.27%
+
+[Detector B] BIM Attack
+[detector_BIM] Epoch   5/50 | Train: 62.20% | Val: 58.60% | Best: 59.38%
+[detector_BIM] Epoch  10/50 | Train: 63.10% | Val: 54.95% | Best: 59.38%
+[detector_BIM] Epoch  15/50 | Train: 62.99% | Val: 59.25% | Best: 59.95%
+[detector_BIM] Epoch  20/50 | Train: 64.29% | Val: 61.30% | Best: 62.55%
+[detector_BIM] Epoch  25/50 | Train: 64.22% | Val: 59.85% | Best: 62.55%
+[detector_BIM] Epoch  30/50 | Train: 65.22% | Val: 61.88% | Best: 63.77%
+[detector_BIM] Epoch  35/50 | Train: 65.92% | Val: 63.17% | Best: 63.83%
+[detector_BIM] Epoch  40/50 | Train: 65.62% | Val: 62.42% | Best: 63.83%
+[detector_BIM] Epoch  45/50 | Train: 66.08% | Val: 63.23% | Best: 63.83%
+[detector_BIM] Epoch  50/50 | Train: 65.52% | Val: 63.02% | Best: 63.83%
+
+[Detector BIM] Best: 63.83% @ epoch 34 | Final: 63.83%
+WARNING: PGD detector 63.27% < 70% — check training.
+WARNING: BIM detector 63.83% < 70% — check training.
+
+============================================================
+FINAL RESULTS SUMMARY
+============================================================
+  Clean Accuracy                        87.06% ✓
+  FGSM Scratch Accuracy                 50.73% ✗
+  FGSM ART Accuracy                     13.66% ✗
+  PGD ART Accuracy                       7.73% ✗
+  BIM ART Accuracy                       7.73% ✗
+  Detector PGD Val Acc                  63.27% ✗
+  Detector BIM Val Acc                  63.83% ✗

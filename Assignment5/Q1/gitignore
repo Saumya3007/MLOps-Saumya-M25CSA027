@@ -1,0 +1,9 @@
+.env
+checkpoints/
+data/
+plots/
+__pycache__/
+*.pyc
+*.npz
+*.pth
+weights/

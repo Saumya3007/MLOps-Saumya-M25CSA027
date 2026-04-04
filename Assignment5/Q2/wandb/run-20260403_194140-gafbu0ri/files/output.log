@@ -1,0 +1,157 @@
+
+============================================================
+STEP 1: Training ResNet-18 on CIFAR-10
+============================================================
+Files already downloaded and verified
+Files already downloaded and verified
+/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+Epoch   1/50 | Loss: 2.0365 | Train: 32.99% | Test: 45.17%
+  -> Saved best model (45.17%)
+Epoch   2/50 | Loss: 1.4689 | Train: 46.37% | Test: 49.89%
+  -> Saved best model (49.89%)
+Epoch   3/50 | Loss: 1.2792 | Train: 53.94% | Test: 54.62%
+  -> Saved best model (54.62%)
+Epoch   4/50 | Loss: 1.1436 | Train: 59.30% | Test: 62.12%
+  -> Saved best model (62.12%)
+Epoch   5/50 | Loss: 1.0501 | Train: 63.00% | Test: 58.31%
+Epoch   6/50 | Loss: 0.9812 | Train: 65.55% | Test: 66.54%
+  -> Saved best model (66.54%)
+Epoch   7/50 | Loss: 0.9150 | Train: 68.26% | Test: 66.17%
+Epoch   8/50 | Loss: 0.8736 | Train: 69.71% | Test: 70.54%
+  -> Saved best model (70.54%)
+Epoch   9/50 | Loss: 0.8455 | Train: 70.73% | Test: 69.33%
+Epoch  10/50 | Loss: 0.8163 | Train: 71.75% | Test: 73.80%
+  -> Saved best model (73.80%)
+Epoch  11/50 | Loss: 0.7894 | Train: 72.68% | Test: 72.36%
+Epoch  12/50 | Loss: 0.7719 | Train: 73.33% | Test: 72.08%
+Epoch  13/50 | Loss: 0.7491 | Train: 74.17% | Test: 74.14%
+  -> Saved best model (74.14%)
+Epoch  14/50 | Loss: 0.7360 | Train: 74.59% | Test: 72.30%
+Epoch  15/50 | Loss: 0.7237 | Train: 75.02% | Test: 72.89%
+Epoch  16/50 | Loss: 0.7006 | Train: 75.81% | Test: 74.81%
+  -> Saved best model (74.81%)
+Epoch  17/50 | Loss: 0.6899 | Train: 76.30% | Test: 74.23%
+Epoch  18/50 | Loss: 0.6796 | Train: 76.69% | Test: 74.45%
+Epoch  19/50 | Loss: 0.6650 | Train: 77.19% | Test: 76.24%
+  -> Saved best model (76.24%)
+Epoch  20/50 | Loss: 0.6450 | Train: 77.77% | Test: 76.49%
+  -> Saved best model (76.49%)
+Epoch  21/50 | Loss: 0.6402 | Train: 77.88% | Test: 74.67%
+Epoch  22/50 | Loss: 0.6173 | Train: 78.83% | Test: 78.01%
+  -> Saved best model (78.01%)
+Epoch  23/50 | Loss: 0.6082 | Train: 79.20% | Test: 77.67%
+Epoch  24/50 | Loss: 0.5903 | Train: 79.45% | Test: 77.06%
+Epoch  25/50 | Loss: 0.5811 | Train: 79.82% | Test: 78.32%
+  -> Saved best model (78.32%)
+Epoch  26/50 | Loss: 0.5588 | Train: 80.55% | Test: 78.89%
+  -> Saved best model (78.89%)
+Epoch  27/50 | Loss: 0.5463 | Train: 81.13% | Test: 80.46%
+  -> Saved best model (80.46%)
+Epoch  28/50 | Loss: 0.5317 | Train: 81.61% | Test: 79.70%
+Epoch  29/50 | Loss: 0.5183 | Train: 82.17% | Test: 80.84%
+  -> Saved best model (80.84%)
+Epoch  30/50 | Loss: 0.4986 | Train: 82.79% | Test: 78.82%
+Epoch  31/50 | Loss: 0.4828 | Train: 83.31% | Test: 79.79%
+Epoch  32/50 | Loss: 0.4663 | Train: 83.93% | Test: 81.34%
+  -> Saved best model (81.34%)
+Epoch  33/50 | Loss: 0.4472 | Train: 84.55% | Test: 81.00%
+Epoch  34/50 | Loss: 0.4284 | Train: 85.15% | Test: 81.41%
+  -> Saved best model (81.41%)
+Epoch  35/50 | Loss: 0.4107 | Train: 85.71% | Test: 82.08%
+  -> Saved best model (82.08%)
+Epoch  36/50 | Loss: 0.3910 | Train: 86.41% | Test: 83.40%
+  -> Saved best model (83.40%)
+Epoch  37/50 | Loss: 0.3710 | Train: 87.15% | Test: 82.33%
+Epoch  38/50 | Loss: 0.3478 | Train: 88.03% | Test: 83.79%
+  -> Saved best model (83.79%)
+Epoch  39/50 | Loss: 0.3260 | Train: 88.60% | Test: 84.05%
+  -> Saved best model (84.05%)
+Epoch  40/50 | Loss: 0.3062 | Train: 89.51% | Test: 84.71%
+  -> Saved best model (84.71%)
+Epoch  41/50 | Loss: 0.2820 | Train: 90.27% | Test: 84.90%
+  -> Saved best model (84.90%)
+Epoch  42/50 | Loss: 0.2628 | Train: 90.90% | Test: 85.57%
+  -> Saved best model (85.57%)
+Epoch  43/50 | Loss: 0.2420 | Train: 91.68% | Test: 85.96%
+  -> Saved best model (85.96%)
+Epoch  44/50 | Loss: 0.2193 | Train: 92.47% | Test: 86.27%
+  -> Saved best model (86.27%)
+Epoch  45/50 | Loss: 0.2035 | Train: 92.84% | Test: 86.03%
+Epoch  46/50 | Loss: 0.1905 | Train: 93.49% | Test: 86.59%
+  -> Saved best model (86.59%)
+Epoch  47/50 | Loss: 0.1767 | Train: 93.95% | Test: 86.51%
+Epoch  48/50 | Loss: 0.1676 | Train: 94.25% | Test: 86.57%
+Epoch  49/50 | Loss: 0.1638 | Train: 94.38% | Test: 86.84%
+  -> Saved best model (86.84%)
+Epoch  50/50 | Loss: 0.1587 | Train: 94.58% | Test: 86.97%
+  -> Saved best model (86.97%)
+
+Best Test Accuracy: 86.97%
+/csehome/m25csa027/MlOps/MlOps-DlOps/Q2/main.py:92: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model18.load_state_dict(torch.load(RESNET18_CKPT, map_location=DEVICE))
+
+============================================================
+STEP 2: Generating Adversarial Examples
+============================================================
+Files already downloaded and verified
+Using 10000 test samples for adversarial generation.
+
+[FGSM Scratch] eps=8.0/255
+  Accuracy: 50.58%
+
+[FGSM ART] eps=8.0/255
+  Accuracy: 13.22%
+
+[PGD ART] eps=8.0/255
+Traceback (most recent call last):                            
+  Accuracy: 7.98%
+
+[BIM ART] eps=8.0/255
+  Accuracy: 7.98%
+
+[Epsilon Sweep]
+  eps=2/255  Scratch: 77.90%  ART: 50.88%
+  eps=4/255  Scratch: 68.82%  ART: 27.43%
+  eps=8/255  Scratch: 50.58%  ART: 13.22%
+  eps=12/255  Scratch: 36.56%  ART: 10.39%
+  eps=16/255  Scratch: 26.83%  ART: 9.39%
+
+============================================================
+STEP 3: Generating Plots
+============================================================
+Saved /csehome/m25csa027/MlOps/MlOps-DlOps/Q2/plots/fgsm_comparison.png
+Saved /csehome/m25csa027/MlOps/MlOps-DlOps/Q2/plots/epsilon_vs_accuracy.png
+Saved /csehome/m25csa027/MlOps/MlOps-DlOps/Q2/plots/accuracy_comparison.png
+Logged WandB image sample tables.
+
+============================================================
+STEP 4: Training Adversarial Detectors (ResNet-34)
+============================================================
+
+Using 10000 clean + 10000 adversarial samples for detection training.
+
+[Detector A] PGD Attack
+  File "/csehome/m25csa027/MlOps/MlOps-DlOps/Q2/main.py", line 248, in <module>
+    main()
+  File "/csehome/m25csa027/MlOps/MlOps-DlOps/Q2/main.py", line 186, in main
+    _, pgd_det_acc = build_and_train_detector(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/csehome/m25csa027/MlOps/MlOps-DlOps/Q2/detectors/train_detector.py", line 94, in build_and_train_detector
+    for inputs, targets in train_loader:
+  File "/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 673, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 52, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/csehome/m25csa027/MlOps/MlOps-DlOps/Q2/detectors/train_detector.py", line 51, in __getitem__
+    img = (img - CIFAR10_MEAN.squeeze()) / CIFAR10_STD.squeeze()
+           ~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+RuntimeError: The size of tensor a (32) must match the size of tensor b (3) at non-singleton dimension 2

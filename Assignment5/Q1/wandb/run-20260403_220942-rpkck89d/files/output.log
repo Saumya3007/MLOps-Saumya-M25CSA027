@@ -1,0 +1,20 @@
+Train:   0%|          | 0/182 [00:00<?, ?it/s]/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+                                                        
+[lora_r8_a2] Epoch 01/10 | TR Loss 1.0387 Acc 73.89% | VA Loss 0.4107 Acc 87.30% | 219.0s
+  → New best saved: /csehome/m25csa027/MlOps/MlOps-DlOps/Assignment4/weights/lora_r8_a2_best.pt  (val=87.30%)
+[lora_r8_a2] Epoch 02/10 | TR Loss 0.3875 Acc 87.91% | VA Loss 0.3661 Acc 88.66% | 214.2s
+  → New best saved: /csehome/m25csa027/MlOps/MlOps-DlOps/Assignment4/weights/lora_r8_a2_best.pt  (val=88.66%)
+[lora_r8_a2] Epoch 03/10 | TR Loss 0.3201 Acc 89.80% | VA Loss 0.3574 Acc 88.34% | 215.3s
+[lora_r8_a2] Epoch 04/10 | TR Loss 0.2817 Acc 91.03% | VA Loss 0.3320 Acc 89.38% | 221.3s
+  → New best saved: /csehome/m25csa027/MlOps/MlOps-DlOps/Assignment4/weights/lora_r8_a2_best.pt  (val=89.38%)
+[lora_r8_a2] Epoch 05/10 | TR Loss 0.2419 Acc 92.14% | VA Loss 0.3340 Acc 89.74% | 213.8s
+  → New best saved: /csehome/m25csa027/MlOps/MlOps-DlOps/Assignment4/weights/lora_r8_a2_best.pt  (val=89.74%)
+[lora_r8_a2] Epoch 06/10 | TR Loss 0.2210 Acc 92.90% | VA Loss 0.3252 Acc 89.56% | 212.9s
+[lora_r8_a2] Epoch 07/10 | TR Loss 0.2004 Acc 93.49% | VA Loss 0.3238 Acc 89.76% | 213.5s
+  → New best saved: /csehome/m25csa027/MlOps/MlOps-DlOps/Assignment4/weights/lora_r8_a2_best.pt  (val=89.76%)
+[lora_r8_a2] Epoch 08/10 | TR Loss 0.1868 Acc 93.85% | VA Loss 0.3253 Acc 89.86% | 213.6s
+  → New best saved: /csehome/m25csa027/MlOps/MlOps-DlOps/Assignment4/weights/lora_r8_a2_best.pt  (val=89.86%)
+[lora_r8_a2] Epoch 09/10 | TR Loss 0.1777 Acc 94.36% | VA Loss 0.3207 Acc 90.00% | 212.2s
+  → New best saved: /csehome/m25csa027/MlOps/MlOps-DlOps/Assignment4/weights/lora_r8_a2_best.pt  (val=90.00%)
+[lora_r8_a2] Epoch 10/10 | TR Loss 0.1723 Acc 94.48% | VA Loss 0.3191 Acc 89.96% | 212.8s

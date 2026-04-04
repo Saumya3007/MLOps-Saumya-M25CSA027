@@ -1,0 +1,172 @@
+
+============================================================
+STEP 1: Training ResNet-18 on CIFAR-10
+============================================================
+Files already downloaded and verified
+Files already downloaded and verified
+/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+Epoch   1/50 | Loss: 2.0773 | Train: 32.28% | Test: 45.15%
+  -> Saved best model (45.15%)
+Epoch   2/50 | Loss: 1.4762 | Train: 46.18% | Test: 52.84%
+  -> Saved best model (52.84%)
+Epoch   3/50 | Loss: 1.2747 | Train: 54.39% | Test: 57.68%
+  -> Saved best model (57.68%)
+Epoch   4/50 | Loss: 1.1312 | Train: 59.84% | Test: 64.22%
+  -> Saved best model (64.22%)
+Epoch   5/50 | Loss: 1.0385 | Train: 63.31% | Test: 63.45%
+Epoch   6/50 | Loss: 0.9596 | Train: 66.40% | Test: 67.08%
+  -> Saved best model (67.08%)
+Epoch   7/50 | Loss: 0.9115 | Train: 68.04% | Test: 67.44%
+  -> Saved best model (67.44%)
+Epoch   8/50 | Loss: 0.8846 | Train: 69.22% | Test: 69.10%
+  -> Saved best model (69.10%)
+Epoch   9/50 | Loss: 0.8482 | Train: 70.63% | Test: 70.16%
+  -> Saved best model (70.16%)
+Epoch  10/50 | Loss: 0.8191 | Train: 71.38% | Test: 69.19%
+Epoch  11/50 | Loss: 0.8007 | Train: 72.20% | Test: 73.07%
+  -> Saved best model (73.07%)
+Epoch  12/50 | Loss: 0.7777 | Train: 73.21% | Test: 71.62%
+Epoch  13/50 | Loss: 0.7608 | Train: 73.76% | Test: 72.02%
+Epoch  14/50 | Loss: 0.7382 | Train: 74.48% | Test: 71.11%
+Epoch  15/50 | Loss: 0.7240 | Train: 74.97% | Test: 75.17%
+  -> Saved best model (75.17%)
+Epoch  16/50 | Loss: 0.7069 | Train: 75.65% | Test: 73.93%
+Epoch  17/50 | Loss: 0.6923 | Train: 76.06% | Test: 75.72%
+  -> Saved best model (75.72%)
+Epoch  18/50 | Loss: 0.6847 | Train: 76.36% | Test: 72.87%
+Epoch  19/50 | Loss: 0.6651 | Train: 77.13% | Test: 76.33%
+  -> Saved best model (76.33%)
+Epoch  20/50 | Loss: 0.6514 | Train: 77.57% | Test: 74.29%
+Epoch  21/50 | Loss: 0.6421 | Train: 77.91% | Test: 77.20%
+  -> Saved best model (77.20%)
+Epoch  22/50 | Loss: 0.6248 | Train: 78.38% | Test: 78.07%
+  -> Saved best model (78.07%)
+Epoch  23/50 | Loss: 0.6100 | Train: 78.94% | Test: 77.03%
+Epoch  24/50 | Loss: 0.5998 | Train: 79.42% | Test: 77.26%
+Epoch  25/50 | Loss: 0.5817 | Train: 79.89% | Test: 76.80%
+Epoch  26/50 | Loss: 0.5676 | Train: 80.15% | Test: 79.19%
+  -> Saved best model (79.19%)
+Epoch  27/50 | Loss: 0.5445 | Train: 81.31% | Test: 78.04%
+Epoch  28/50 | Loss: 0.5357 | Train: 81.59% | Test: 80.21%
+  -> Saved best model (80.21%)
+Epoch  29/50 | Loss: 0.5159 | Train: 82.31% | Test: 76.66%
+Epoch  30/50 | Loss: 0.5073 | Train: 82.47% | Test: 79.51%
+Epoch  31/50 | Loss: 0.4821 | Train: 83.33% | Test: 80.65%
+  -> Saved best model (80.65%)
+Epoch  32/50 | Loss: 0.4729 | Train: 83.61% | Test: 79.35%
+Epoch  33/50 | Loss: 0.4531 | Train: 84.26% | Test: 81.81%
+  -> Saved best model (81.81%)
+Epoch  34/50 | Loss: 0.4260 | Train: 85.39% | Test: 82.36%
+  -> Saved best model (82.36%)
+Epoch  35/50 | Loss: 0.4116 | Train: 85.83% | Test: 81.88%
+Epoch  36/50 | Loss: 0.3944 | Train: 86.39% | Test: 82.89%
+  -> Saved best model (82.89%)
+Epoch  37/50 | Loss: 0.3692 | Train: 87.20% | Test: 83.37%
+  -> Saved best model (83.37%)
+Epoch  38/50 | Loss: 0.3520 | Train: 87.69% | Test: 82.27%
+Epoch  39/50 | Loss: 0.3270 | Train: 88.70% | Test: 84.49%
+  -> Saved best model (84.49%)
+Epoch  40/50 | Loss: 0.3071 | Train: 89.30% | Test: 84.40%
+Epoch  41/50 | Loss: 0.2833 | Train: 90.09% | Test: 84.35%
+Epoch  42/50 | Loss: 0.2604 | Train: 91.07% | Test: 85.20%
+  -> Saved best model (85.20%)
+Epoch  43/50 | Loss: 0.2416 | Train: 91.57% | Test: 85.87%
+  -> Saved best model (85.87%)
+Epoch  44/50 | Loss: 0.2229 | Train: 92.32% | Test: 86.48%
+  -> Saved best model (86.48%)
+Epoch  45/50 | Loss: 0.2029 | Train: 93.04% | Test: 86.54%
+  -> Saved best model (86.54%)
+Epoch  46/50 | Loss: 0.1856 | Train: 93.65% | Test: 86.76%
+  -> Saved best model (86.76%)
+Epoch  47/50 | Loss: 0.1753 | Train: 94.05% | Test: 86.84%
+  -> Saved best model (86.84%)
+Epoch  48/50 | Loss: 0.1666 | Train: 94.31% | Test: 86.93%
+  -> Saved best model (86.93%)
+Epoch  49/50 | Loss: 0.1601 | Train: 94.54% | Test: 87.06%
+  -> Saved best model (87.06%)
+Epoch  50/50 | Loss: 0.1561 | Train: 94.73% | Test: 86.91%
+
+Best Test Accuracy: 87.06%
+/csehome/m25csa027/MlOps/MlOps-DlOps/Q2/main.py:92: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model18.load_state_dict(torch.load(RESNET18_CKPT, map_location=DEVICE))
+
+============================================================
+STEP 2: Generating Adversarial Examples
+============================================================
+Files already downloaded and verified
+Using 10000 test samples for adversarial generation.
+
+[FGSM Scratch] eps=8.0/255
+  Accuracy: 50.73%
+
+[FGSM ART] eps=8.0/255
+  Accuracy: 13.66%
+
+[PGD ART] eps=8.0/255
+/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 2 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  Accuracy: 7.73%
+
+[BIM ART] eps=8.0/255
+  Accuracy: 7.73%
+
+[Epsilon Sweep]
+  eps=2/255  Scratch: 78.23%  ART: 50.80%
+  eps=4/255  Scratch: 68.98%  ART: 28.46%
+  eps=8/255  Scratch: 50.73%  ART: 13.66%
+  eps=12/255  Scratch: 37.10%  ART: 10.21%
+  eps=16/255  Scratch: 27.38%  ART: 8.71%
+
+============================================================
+STEP 3: Generating Plots
+============================================================
+Saved /csehome/m25csa027/MlOps/MlOps-DlOps/Q2/plots/fgsm_comparison.png
+Saved /csehome/m25csa027/MlOps/MlOps-DlOps/Q2/plots/epsilon_vs_accuracy.png
+Saved /csehome/m25csa027/MlOps/MlOps-DlOps/Q2/plots/accuracy_comparison.png
+Logged WandB image sample tables.
+
+============================================================
+STEP 4: Training Adversarial Detectors (ResNet-34)
+============================================================
+
+Using 10000 clean + 10000 adversarial samples for detection training.
+
+[Detector A] PGD Attack
+  warnings.warn(_create_warning_msg(
+[detector_PGD] Epoch  10/50 | Train: 49.52% | Val: 50.27% | Best: 50.27%
+[detector_PGD] Epoch  20/50 | Train: 49.74% | Val: 49.92% | Best: 50.27%
+[detector_PGD] Epoch  30/50 | Train: 49.83% | Val: 50.08% | Best: 50.27%
+[detector_PGD] Epoch  40/50 | Train: 49.37% | Val: 50.08% | Best: 50.27%
+[detector_PGD] Epoch  50/50 | Train: 50.02% | Val: 49.92% | Best: 50.27%
+/csehome/m25csa027/MlOps/MlOps-DlOps/Q2/detectors/train_detector.py:112: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(save_path, map_location=device))
+
+[Detector PGD] Best: 50.27% @ epoch 10 | Final: 50.27%
+
+[Detector B] BIM Attack
+[detector_BIM] Epoch  10/50 | Train: 50.46% | Val: 49.92% | Best: 50.20%
+[detector_BIM] Epoch  20/50 | Train: 49.97% | Val: 50.08% | Best: 50.20%
+[detector_BIM] Epoch  30/50 | Train: 49.73% | Val: 49.92% | Best: 50.20%
+[detector_BIM] Epoch  40/50 | Train: 49.36% | Val: 49.92% | Best: 50.20%
+[detector_BIM] Epoch  50/50 | Train: 50.02% | Val: 49.92% | Best: 50.20%
+
+[Detector BIM] Best: 50.20% @ epoch 3 | Final: 50.20%
+WARNING: PGD detector 50.27% < 70% — check training.
+WARNING: BIM detector 50.20% < 70% — check training.
+
+============================================================
+FINAL RESULTS SUMMARY
+============================================================
+  Clean Accuracy                        87.06% ✓
+  FGSM Scratch Accuracy                 50.73% ✗
+  FGSM ART Accuracy                     13.66% ✗
+  PGD ART Accuracy                       7.73% ✗
+  BIM ART Accuracy                       7.73% ✗
+  Detector PGD Val Acc                  50.27% ✗
+  Detector BIM Val Acc                  50.20% ✗
+HuggingFace upload failed: 404 Client Error. (Request ID: Root=1-69cfe912-43feea3c36a3ff0b6a2800c1;85251281-99d9-46fb-8a88-6fa04b317c87)
+
+Repository Not Found for url: https://huggingface.co/api/models/Saumya3007/assignment5_q2-adversarial/preupload/main.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated. For more details, see https://huggingface.co/docs/huggingface_hub/authentication
+Note: Creating a commit assumes that the repo already exists on the Huggingface Hub. Please use `create_repo` if it's not the case.
