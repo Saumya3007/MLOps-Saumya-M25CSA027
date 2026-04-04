@@ -1,6 +1,0 @@
-{"time":"2026-04-03T14:29:32.364938531+05:30","level":"INFO","msg":"stream: starting","core version":"0.24.1"}
-{"time":"2026-04-03T14:29:32.917376038+05:30","level":"INFO","msg":"stream: created new stream","id":"rwww2cxd"}
-{"time":"2026-04-03T14:29:32.917594294+05:30","level":"INFO","msg":"handler: started","stream_id":"rwww2cxd"}
-{"time":"2026-04-03T14:29:32.93385238+05:30","level":"INFO","msg":"stream: started","id":"rwww2cxd"}
-{"time":"2026-04-03T14:29:32.934228775+05:30","level":"INFO","msg":"writer: started","stream_id":"rwww2cxd"}
-{"time":"2026-04-03T14:29:32.934281893+05:30","level":"INFO","msg":"sender: started","stream_id":"rwww2cxd"}

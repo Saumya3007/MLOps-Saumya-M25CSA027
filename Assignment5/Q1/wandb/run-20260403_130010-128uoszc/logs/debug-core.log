@@ -1,8 +1,0 @@
-{"time":"2026-04-03T13:00:12.524386905+05:30","level":"INFO","msg":"main: starting server","port-filename":"/tmp/tmpecvtl5u9/port-729724.txt","pid":729724,"log-level":0,"disable-analytics":false,"shutdown-on-parent-exit":false,"enable-dcgm-profiling":false}
-{"time":"2026-04-03T13:00:12.525176766+05:30","level":"INFO","msg":"server: accepting connections","addr":{"Name":"/tmp/wandb-729724-729748-1805757547/socket","Net":"unix"}}
-{"time":"2026-04-03T13:00:12.525420565+05:30","level":"INFO","msg":"server: will exit if parent process dies","ppid":729724}
-{"time":"2026-04-03T13:00:12.583179485+05:30","level":"INFO","msg":"connection: ManageConnectionData: new connection created","id":"1(@)"}
-{"time":"2026-04-03T13:00:12.834637165+05:30","level":"INFO","msg":"handleInformInit: received","streamId":"128uoszc","id":"1(@)"}
-{"time":"2026-04-03T13:00:14.328567233+05:30","level":"INFO","msg":"handleInformInit: stream started","streamId":"128uoszc","id":"1(@)"}
-{"time":"2026-04-03T13:00:20.777432438+05:30","level":"INFO","msg":"connection: cancelling request","id":"1(@)","requestId":"ddted5j2tbqe"}
-{"time":"2026-04-03T13:01:14.416081383+05:30","level":"INFO","msg":"server: parent process exited, terminating service process"}

@@ -1,6 +1,0 @@
-{"time":"2026-04-03T13:00:13.236332134+05:30","level":"INFO","msg":"stream: starting","core version":"0.24.1"}
-{"time":"2026-04-03T13:00:14.152480116+05:30","level":"INFO","msg":"stream: created new stream","id":"128uoszc"}
-{"time":"2026-04-03T13:00:14.152701423+05:30","level":"INFO","msg":"handler: started","stream_id":"128uoszc"}
-{"time":"2026-04-03T13:00:14.328536279+05:30","level":"INFO","msg":"stream: started","id":"128uoszc"}
-{"time":"2026-04-03T13:00:14.330819037+05:30","level":"INFO","msg":"writer: started","stream_id":"128uoszc"}
-{"time":"2026-04-03T13:00:14.33097275+05:30","level":"INFO","msg":"sender: started","stream_id":"128uoszc"}
