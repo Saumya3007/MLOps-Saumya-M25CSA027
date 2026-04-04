@@ -1,0 +1,245 @@
+
+============================================================
+STEP 1: ResNet-18 on CIFAR-10  (target ≥ 72%)
+============================================================
+Files already downloaded and verified
+Files already downloaded and verified
+/csehome/m25csa027/.local/lib/python3.11/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+Epoch   1/100 | Loss: 2.0879 | Train: 30.88% | Test: 41.68%
+  -> Saved best model (41.68%)
+Epoch   2/100 | Loss: 1.4976 | Train: 45.27% | Test: 52.00%
+  -> Saved best model (52.00%)
+Epoch   3/100 | Loss: 1.2942 | Train: 53.18% | Test: 57.72%
+  -> Saved best model (57.72%)
+Epoch   4/100 | Loss: 1.1625 | Train: 59.08% | Test: 58.30%
+  -> Saved best model (58.30%)
+Epoch   5/100 | Loss: 1.0638 | Train: 62.34% | Test: 60.48%
+  -> Saved best model (60.48%)
+Epoch   6/100 | Loss: 0.9986 | Train: 65.11% | Test: 68.06%
+  -> Saved best model (68.06%)
+Epoch   7/100 | Loss: 0.9398 | Train: 67.24% | Test: 63.84%
+Epoch   8/100 | Loss: 0.9099 | Train: 68.33% | Test: 66.80%
+Epoch   9/100 | Loss: 0.8738 | Train: 69.77% | Test: 70.71%
+  -> Saved best model (70.71%)
+Epoch  10/100 | Loss: 0.8364 | Train: 71.22% | Test: 66.53%
+Epoch  11/100 | Loss: 0.8193 | Train: 71.84% | Test: 70.36%
+Epoch  12/100 | Loss: 0.8006 | Train: 72.24% | Test: 70.03%
+Epoch  13/100 | Loss: 0.7793 | Train: 73.31% | Test: 70.75%
+  -> Saved best model (70.75%)
+Epoch  14/100 | Loss: 0.7602 | Train: 73.89% | Test: 71.96%
+  -> Saved best model (71.96%)
+Epoch  15/100 | Loss: 0.7607 | Train: 73.87% | Test: 73.91%
+  -> Saved best model (73.91%)
+Epoch  16/100 | Loss: 0.7435 | Train: 74.49% | Test: 73.10%
+Epoch  17/100 | Loss: 0.7303 | Train: 74.99% | Test: 70.00%
+Epoch  18/100 | Loss: 0.7264 | Train: 74.87% | Test: 74.16%
+  -> Saved best model (74.16%)
+Epoch  19/100 | Loss: 0.7151 | Train: 75.59% | Test: 72.37%
+Epoch  20/100 | Loss: 0.7072 | Train: 75.78% | Test: 72.91%
+Epoch  21/100 | Loss: 0.6980 | Train: 76.01% | Test: 74.94%
+  -> Saved best model (74.94%)
+Epoch  22/100 | Loss: 0.6952 | Train: 76.27% | Test: 74.94%
+Epoch  23/100 | Loss: 0.6817 | Train: 76.66% | Test: 74.69%
+Epoch  24/100 | Loss: 0.6764 | Train: 76.72% | Test: 76.66%
+  -> Saved best model (76.66%)
+Epoch  25/100 | Loss: 0.6679 | Train: 77.08% | Test: 76.20%
+Epoch  26/100 | Loss: 0.6692 | Train: 76.97% | Test: 76.52%
+Epoch  27/100 | Loss: 0.6608 | Train: 77.30% | Test: 69.45%
+Epoch  28/100 | Loss: 0.6547 | Train: 77.62% | Test: 75.14%
+Epoch  29/100 | Loss: 0.6498 | Train: 77.78% | Test: 76.07%
+Epoch  30/100 | Loss: 0.6442 | Train: 78.05% | Test: 77.18%
+  -> Saved best model (77.18%)
+Epoch  31/100 | Loss: 0.6254 | Train: 78.53% | Test: 76.09%
+Epoch  32/100 | Loss: 0.6356 | Train: 78.12% | Test: 75.96%
+Epoch  33/100 | Loss: 0.6281 | Train: 78.38% | Test: 77.62%
+  -> Saved best model (77.62%)
+Epoch  34/100 | Loss: 0.6167 | Train: 78.86% | Test: 76.37%
+Epoch  35/100 | Loss: 0.6077 | Train: 79.15% | Test: 75.26%
+Epoch  36/100 | Loss: 0.6088 | Train: 79.21% | Test: 75.83%
+Epoch  37/100 | Loss: 0.6022 | Train: 79.44% | Test: 73.99%
+Epoch  38/100 | Loss: 0.5909 | Train: 79.90% | Test: 76.07%
+Epoch  39/100 | Loss: 0.5895 | Train: 79.86% | Test: 78.50%
+  -> Saved best model (78.50%)
+Epoch  40/100 | Loss: 0.5825 | Train: 79.74% | Test: 76.91%
+Epoch  41/100 | Loss: 0.5686 | Train: 80.22% | Test: 77.03%
+Epoch  42/100 | Loss: 0.5716 | Train: 80.42% | Test: 78.30%
+Epoch  43/100 | Loss: 0.5648 | Train: 80.76% | Test: 77.06%
+Epoch  44/100 | Loss: 0.5552 | Train: 80.88% | Test: 76.58%
+Epoch  45/100 | Loss: 0.5458 | Train: 81.30% | Test: 77.79%
+Epoch  46/100 | Loss: 0.5478 | Train: 81.15% | Test: 80.62%
+  -> Saved best model (80.62%)
+Epoch  47/100 | Loss: 0.5421 | Train: 81.29% | Test: 77.94%
+Epoch  48/100 | Loss: 0.5269 | Train: 81.91% | Test: 76.51%
+Epoch  49/100 | Loss: 0.5308 | Train: 81.70% | Test: 78.39%
+Epoch  50/100 | Loss: 0.5185 | Train: 82.27% | Test: 78.94%
+Epoch  51/100 | Loss: 0.5106 | Train: 82.49% | Test: 80.33%
+Epoch  52/100 | Loss: 0.5019 | Train: 82.78% | Test: 80.49%
+Epoch  53/100 | Loss: 0.4925 | Train: 83.20% | Test: 78.41%
+Epoch  54/100 | Loss: 0.4870 | Train: 83.40% | Test: 79.37%
+Epoch  55/100 | Loss: 0.4847 | Train: 83.24% | Test: 80.99%
+  -> Saved best model (80.99%)
+Epoch  56/100 | Loss: 0.4689 | Train: 83.69% | Test: 81.65%
+  -> Saved best model (81.65%)
+Epoch  57/100 | Loss: 0.4625 | Train: 83.93% | Test: 79.50%
+Epoch  58/100 | Loss: 0.4579 | Train: 84.25% | Test: 81.53%
+Epoch  59/100 | Loss: 0.4527 | Train: 84.43% | Test: 81.85%
+  -> Saved best model (81.85%)
+Epoch  60/100 | Loss: 0.4464 | Train: 84.63% | Test: 81.84%
+Epoch  61/100 | Loss: 0.4349 | Train: 85.18% | Test: 81.69%
+Epoch  62/100 | Loss: 0.4241 | Train: 85.26% | Test: 82.46%
+  -> Saved best model (82.46%)
+Epoch  63/100 | Loss: 0.4137 | Train: 85.80% | Test: 81.87%
+Epoch  64/100 | Loss: 0.4053 | Train: 85.95% | Test: 82.15%
+Epoch  65/100 | Loss: 0.3984 | Train: 86.34% | Test: 81.30%
+Epoch  66/100 | Loss: 0.3926 | Train: 86.59% | Test: 82.62%
+  -> Saved best model (82.62%)
+Epoch  67/100 | Loss: 0.3742 | Train: 86.99% | Test: 83.72%
+  -> Saved best model (83.72%)
+Epoch  68/100 | Loss: 0.3696 | Train: 87.18% | Test: 83.58%
+Epoch  69/100 | Loss: 0.3582 | Train: 87.47% | Test: 82.70%
+Epoch  70/100 | Loss: 0.3445 | Train: 87.99% | Test: 83.85%
+  -> Saved best model (83.85%)
+Epoch  71/100 | Loss: 0.3351 | Train: 88.40% | Test: 82.59%
+Epoch  72/100 | Loss: 0.3258 | Train: 88.85% | Test: 83.46%
+Epoch  73/100 | Loss: 0.3206 | Train: 88.84% | Test: 84.39%
+  -> Saved best model (84.39%)
+Epoch  74/100 | Loss: 0.3045 | Train: 89.52% | Test: 84.59%
+  -> Saved best model (84.59%)
+Epoch  75/100 | Loss: 0.2940 | Train: 89.75% | Test: 85.15%
+  -> Saved best model (85.15%)
+Epoch  76/100 | Loss: 0.2813 | Train: 90.20% | Test: 84.53%
+Epoch  77/100 | Loss: 0.2703 | Train: 90.53% | Test: 85.15%
+Epoch  78/100 | Loss: 0.2590 | Train: 90.90% | Test: 84.88%
+Epoch  79/100 | Loss: 0.2490 | Train: 91.34% | Test: 85.28%
+  -> Saved best model (85.28%)
+Epoch  80/100 | Loss: 0.2368 | Train: 91.73% | Test: 85.64%
+  -> Saved best model (85.64%)
+Epoch  81/100 | Loss: 0.2230 | Train: 92.09% | Test: 86.25%
+  -> Saved best model (86.25%)
+Epoch  82/100 | Loss: 0.2066 | Train: 92.77% | Test: 86.22%
+Epoch  83/100 | Loss: 0.1898 | Train: 93.47% | Test: 86.43%
+  -> Saved best model (86.43%)
+Epoch  84/100 | Loss: 0.1831 | Train: 93.66% | Test: 86.45%
+  -> Saved best model (86.45%)
+Epoch  85/100 | Loss: 0.1706 | Train: 94.07% | Test: 86.68%
+  -> Saved best model (86.68%)
+Epoch  86/100 | Loss: 0.1621 | Train: 94.40% | Test: 86.62%
+Epoch  87/100 | Loss: 0.1471 | Train: 94.91% | Test: 87.24%
+  -> Saved best model (87.24%)
+Epoch  88/100 | Loss: 0.1375 | Train: 95.22% | Test: 87.12%
+Epoch  89/100 | Loss: 0.1290 | Train: 95.48% | Test: 87.18%
+Epoch  90/100 | Loss: 0.1177 | Train: 95.97% | Test: 87.43%
+  -> Saved best model (87.43%)
+Epoch  91/100 | Loss: 0.1078 | Train: 96.28% | Test: 87.59%
+  -> Saved best model (87.59%)
+Epoch  92/100 | Loss: 0.0980 | Train: 96.71% | Test: 87.47%
+Epoch  93/100 | Loss: 0.0937 | Train: 96.77% | Test: 87.65%
+  -> Saved best model (87.65%)
+Epoch  94/100 | Loss: 0.0879 | Train: 97.03% | Test: 87.93%
+  -> Saved best model (87.93%)
+Epoch  95/100 | Loss: 0.0850 | Train: 97.22% | Test: 88.04%
+  -> Saved best model (88.04%)
+Epoch  96/100 | Loss: 0.0838 | Train: 97.27% | Test: 87.99%
+Epoch  97/100 | Loss: 0.0773 | Train: 97.40% | Test: 88.12%
+  -> Saved best model (88.12%)
+Epoch  98/100 | Loss: 0.0754 | Train: 97.43% | Test: 88.35%
+  -> Saved best model (88.35%)
+Epoch  99/100 | Loss: 0.0738 | Train: 97.60% | Test: 88.13%
+Epoch 100/100 | Loss: 0.0741 | Train: 97.55% | Test: 88.13%
+
+Best Test Accuracy: 88.35%
+
+============================================================
+STEP 2: Adversarial Examples  eps=4.00/255
+============================================================
+Files already downloaded and verified
+Using 10000 test samples.
+
+[FGSM Scratch]  eps=4.00/255
+
+[FGSM ART]  eps=4.00/255
+
+[PGD ART]  eps=4.00/255
+                                                              
+
+[BIM ART]  eps=4.00/255
+Adversarial arrays cached.
+  FGSM Scratch         Accuracy: 69.51%
+  FGSM ART             Accuracy: 32.10%
+  PGD ART              Accuracy: 14.00%
+  BIM ART              Accuracy: 14.00%
+
+[Epsilon Sweep]
+  eps=2/255  Scratch: 79.43%  ART: 52.80%
+  eps=4/255  Scratch: 69.51%  ART: 32.10%
+  eps=8/255  Scratch: 52.87%  ART: 18.06%
+  eps=12/255  Scratch: 39.49%  ART: 13.96%
+  eps=16/255  Scratch: 30.86%  ART: 12.25%
+
+============================================================
+STEP 3: Plots & WandB logging
+============================================================
+Saved /csehome/m25csa027/MlOps/MlOps-DlOps/Q2/plots/fgsm_comparison.png
+Saved /csehome/m25csa027/MlOps/MlOps-DlOps/Q2/plots/epsilon_vs_accuracy.png
+Saved /csehome/m25csa027/MlOps/MlOps-DlOps/Q2/plots/accuracy_comparison.png
+Logged WandB image sample tables.
+
+============================================================
+STEP 4: Adversarial Detectors  (target ≥ 70%)
+============================================================
+
+Using 10000 clean + 10000 adversarial samples for detection.
+
+[Detector A] PGD Attack
+[detector_PGD] Epoch   5/60 | Train: 65.84% | Val: 67.33% | Best: 67.33%
+[detector_PGD] Epoch  10/60 | Train: 68.19% | Val: 67.67% | Best: 67.87%
+[detector_PGD] Epoch  15/60 | Train: 68.78% | Val: 69.73% | Best: 69.73%
+[detector_PGD] Epoch  20/60 | Train: 70.53% | Val: 68.93% | Best: 69.73%
+[detector_PGD] Epoch  25/60 | Train: 70.82% | Val: 69.97% | Best: 69.97%
+[detector_PGD] Epoch  30/60 | Train: 71.89% | Val: 69.73% | Best: 70.70%
+[detector_PGD] Epoch  35/60 | Train: 72.62% | Val: 70.33% | Best: 70.70%
+[detector_PGD] Epoch  40/60 | Train: 72.96% | Val: 69.47% | Best: 70.70%
+[detector_PGD] Epoch  45/60 | Train: 73.91% | Val: 70.20% | Best: 70.83%
+[detector_PGD] Epoch  50/60 | Train: 74.45% | Val: 70.30% | Best: 70.83%
+[detector_PGD] Epoch  55/60 | Train: 74.76% | Val: 70.13% | Best: 70.83%
+[detector_PGD] Epoch  60/60 | Train: 75.24% | Val: 70.10% | Best: 70.83%
+
+[Detector PGD] Best: 70.83% @ epoch 42 | Final: 70.83%
+
+[Detector B] BIM Attack
+[detector_BIM] Epoch   5/60 | Train: 65.97% | Val: 66.47% | Best: 66.47%
+[detector_BIM] Epoch  10/60 | Train: 67.99% | Val: 68.50% | Best: 68.50%
+[detector_BIM] Epoch  15/60 | Train: 69.01% | Val: 67.17% | Best: 68.67%
+[detector_BIM] Epoch  20/60 | Train: 70.19% | Val: 69.47% | Best: 69.47%
+[detector_BIM] Epoch  25/60 | Train: 70.79% | Val: 69.30% | Best: 70.60%
+[detector_BIM] Epoch  30/60 | Train: 71.49% | Val: 70.00% | Best: 70.60%
+[detector_BIM] Epoch  35/60 | Train: 72.15% | Val: 69.57% | Best: 70.60%
+[detector_BIM] Epoch  40/60 | Train: 73.28% | Val: 69.97% | Best: 70.60%
+[detector_BIM] Epoch  45/60 | Train: 73.79% | Val: 70.40% | Best: 70.60%
+[detector_BIM] Epoch  50/60 | Train: 74.32% | Val: 69.77% | Best: 70.60%
+[detector_BIM] Epoch  55/60 | Train: 74.67% | Val: 70.23% | Best: 70.70%
+[detector_BIM] Epoch  60/60 | Train: 75.09% | Val: 70.37% | Best: 70.87%
+
+[Detector BIM] Best: 70.87% @ epoch 57 | Final: 70.87%
+
+============================================================
+FINAL RESULTS SUMMARY
+============================================================
+  Clean Accuracy                        88.35%  ✓
+  FGSM Scratch Accuracy                 69.51%  (drop=18.8%)
+  FGSM ART Accuracy                     32.10%  (drop=56.2%)
+  PGD ART Accuracy                      14.00%  (drop=74.3%)
+  BIM ART Accuracy                      14.00%  (drop=74.3%)
+  Detector PGD Val Acc                  70.83%  ✓
+  Detector BIM Val Acc                  70.87%  ✓
+New Data Upload               : 100%|██████████| 44.8MB / 44.8MB, 3.29MB/s  
+  ...kpoints/best_resnet18.pth: 100%|██████████| 44.8MB / 44.8MB            
+Processing Files (1 / 1)      : 100%|██████████| 46.5MB / 46.5MB, 9.30MB/s  
+New Data Upload               : 100%|██████████| 3.65MB / 3.65MB,  730kB/s  
+  ...nts/best_detector_PGD.pth: 100%|██████████| 46.5MB / 46.5MB            
+Processing Files (1 / 1)      : 100%|██████████| 46.5MB / 46.5MB, 10.6MB/s  
+New Data Upload               : 100%|██████████| 3.58MB / 3.58MB,  814kB/s  
+  ...nts/best_detector_BIM.pth: 100%|██████████| 46.5MB / 46.5MB            
+
+Models uploaded to https://huggingface.co/Saumya3007/assignment5_q2-adversarial
