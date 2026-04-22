@@ -1,0 +1,10 @@
+Final Evaluation Results for Question 2 (CityScape Segmentation):
+------------------------------------------------------------
+Test Set mIOU  : 0.4895
+Test Set mDICE : 0.5528
+
+Training Epochs: 20
+Dataset Split  : 80% Train, 20% Test (Seed 42)
+Model Architecture: UNet
+------------------------------------------------------------
+Result: PASS (> 0.48 criteria met)
